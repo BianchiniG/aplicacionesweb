@@ -1,4 +1,8 @@
 .jumbotron {
     background-image: url(../img/banner.png);
-    height: 400px;
+    height: 370px;
+}
+
+.carrito {
+    font-size: 22px;
 }

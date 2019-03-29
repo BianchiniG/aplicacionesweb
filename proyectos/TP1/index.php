@@ -27,7 +27,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <!-- Deshabilitar si el usuario no esta logueado -->
-            <a id="carrito" class="nav-link fa fa-shopping-cart" href="carrito.php"></a>
+            <a class="nav-link carrito fa fa-shopping-cart" href="carrito.php"></a>
           </li>
           <li class="nav-item">
             <!-- Mostrar otra cosa si esta logueado -->
