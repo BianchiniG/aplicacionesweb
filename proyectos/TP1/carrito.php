@@ -17,7 +17,8 @@
 </head>
 
 <body>
-  <?php require_once "funcionalidad/catalogo.php" ?>
+  <?php require_once "funcionalidad/carrito.php"; ?>
+  <?php require_once "funcionalidad/sesion.php"; ?>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
@@ -41,37 +42,18 @@
   </nav>
 
   <div class="container">
-    <header class="jumbotron my-4"></header>
-    <div class="row text-center">
-
-    <?php 
-    $productos = getProductos();
-
-    if (count($productos)) {
-      foreach ($productos as $producto) {
-          echo "<div class=\"col-lg-3 col-md-6 mb-4\">";
-            echo "<div class=\"card h-100\">";
-              echo "<img class=\"card-img-top\" src=\"http://placehold.it/500x325\" alt=\"\">";
-              echo "<div class=\"card-body\">";
-                echo "<h4 class=\"card-title\">".$producto['nombre']."</h4>";
-                echo "<p class=\"card-text\">".$producto['descripcion']."</p>";
-                echo "<p class=\"card-text\">".$producto['precio']."</p>";
-             echo " </div>";
-              echo "<div class=\"card-footer\">";
-                if ($producto['stock'] == 0) {
-                  echo "<a href=\"#\" class=\"btn btn-primary disabled\">Sin Stock!</a>";
-                } else {
-                  echo "<a href=\"#\" class=\"btn btn-primary\">Agregar al Carrito!</a>";
-                }
-             echo " </div>";
-           echo " </div>";
-         echo " </div>";
-      }
-    } else {
-      echo "<p>No se encontraron productos.</p>";
-    }
-    ?>
-    </div>
+    <table class="table table-hover">
+        <thead>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th></th>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
   </div>
 
   <footer class="py-5 bg-dark">
