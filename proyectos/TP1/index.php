@@ -45,7 +45,8 @@
     <div class="row text-center">
 
     <?php 
-    $productos = getProductos();
+    $catalogo = new Catalogo();
+    $productos = $catalogo->getProductos();
 
     if (count($productos)) {
       foreach ($productos as $producto) {
