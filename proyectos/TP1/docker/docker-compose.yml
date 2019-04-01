@@ -4,7 +4,7 @@ services:
     image: php:7.2-apache
     container_name: php_appweb
     volumes:
-      - ./proyectos:/var/www/html/
+      - ..:/var/www/html/
     ports: 
       - "8888:80"
     depends_on:
