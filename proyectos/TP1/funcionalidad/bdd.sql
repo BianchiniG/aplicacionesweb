@@ -40,4 +40,10 @@ create table detalles_compras (
 ALTER TABLE detalles_compras ADD CONSTRAINT fk_compra_id FOREIGN KEY (id_compra) REFERENCES compras (id);
 ALTER TABLE detalles_compras ADD CONSTRAINT fk_producto_id FOREIGN KEY (id_producto) REFERENCES productos (id);
 
-
+insert into usuarios values (1, 'pepe', 'clavepepe', 'pepe@gmail.com');
+insert into usuarios values (2, 'carlos', 'clavecarlos', 'carlos@gmail.com');
+insert into productos values (1, 'Ingenieria de Software', 'Sommerville', 'Pearson', 'El libro favorito de marta', 10, 1500);
+insert into productos values (2, 'Ingeniería de Software - Un Enfoque Práctico', 'R. Pressman', 'McGraw Hill', 'El otro libro favorito de marta', 2, 2000);
+insert into productos values (3, 'Core PHP', 'Leon Atkinson', 'Pearson', 'Todo lo que querias saber de PHP', 0, 790);
+insert into productos values (4, 'Computer Networking- A Top-Down approach (6th Edition)', 'J. F. Kurose', 'Pearson', 'A Ricardo Lopez le gusta esto', 7, 1489);
+insert into productos values (5, 'Diseño conceptual de bases de datos', 'C. Batini', 'Addison-Wesley', 'A Gabriel Ingravallo le gusta esto', 4, 1129);
