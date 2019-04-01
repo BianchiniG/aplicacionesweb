@@ -14,10 +14,14 @@
   <link href="static/css/heroic-features.css" rel="stylesheet">
   <link href="static/css/font-awesome.css" rel="stylesheet">
   <link href="static/css/app.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="static/css/util.css">
+  <link rel="stylesheet" type="text/css" href="static/css/main.css">
+<!--===============================================================================================-->
+
 </head>
 
 <body>
-  <?php require_once "funcionalidad/catalogo.php" ?>
+  <?php require_once "funcionalidad/sesion.php"; ?>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
@@ -31,48 +35,47 @@
             <!-- Deshabilitar si el usuario no esta logueado -->
             <a class="nav-link carrito fa fa-shopping-cart" href="carrito.php"></a>
           </li>
-          <li class="nav-item">
-            <!-- Mostrar otra cosa si esta logueado -->
-            <a class="nav-link" href="login.php">Iniciar Sesion</a>
-          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div class="container">
-    <header class="jumbotron my-4"></header>
-    <div class="row text-center">
+    <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form">
+					<span class="login100-form-title p-b-26">
+						Bienvenido
+					</span>
+					<span class="login100-form-title p-b-48">
+						<i class="zmdi zmdi-font"></i>
+					</span>
 
-    <?php 
-    $productos = getProductos();
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+						<input class="input100" type="text" name="email">
+						<span class="focus-input100" data-placeholder="Email"></span>
+					</div>
 
-    if (count($productos)) {
-      foreach ($productos as $producto) {
-          echo "<div class=\"col-lg-3 col-md-6 mb-4\">";
-            echo "<div class=\"card h-100\">";
-              echo "<img class=\"card-img-top\" src=\"http://placehold.it/500x325\" alt=\"\">";
-              echo "<div class=\"card-body\">";
-                echo "<h4 class=\"card-title\">".$producto['nombre']."</h4>";
-                echo "<p class=\"card-text\">".$producto['descripcion']."</p>";
-                echo "<p class=\"card-text\">".$producto['precio']."</p>";
-             echo " </div>";
-              echo "<div class=\"card-footer\">";
-                if ($producto['stock'] == 0) {
-                  echo "<a href=\"#\" class=\"btn btn-primary disabled\">Sin Stock!</a>";
-                } else {
-                  echo "<a href=\"#\" class=\"btn btn-primary\">Agregar al Carrito!</a>";
-                }
-             echo " </div>";
-           echo " </div>";
-         echo " </div>";
-      }
-    } else {
-      echo "<p>No se encontraron productos.</p>";
-    }
-    ?>
-    </div>
-  </div>
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password" name="pass">
+						<span class="focus-input100" data-placeholder="Password"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+								Iniciar Sesión
+							</button>
+						</div>
+				</form>
+			</div>
+		</div>
+	</div>
+  
 
   <footer class="py-5 bg-dark">
     <div class="container">

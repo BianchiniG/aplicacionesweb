@@ -34,7 +34,7 @@
           </li>
           <li class="nav-item">
             <!-- Mostrar otra cosa si esta logueado -->
-            <a class="nav-link" href="#">Iniciar Sesion</a>
+            <a class="nav-link" href="login.php">Iniciar Sesion</a>
           </li>
         </ul>
       </div>
@@ -58,7 +58,7 @@
 
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+      <p class="m-0 text-center text-white">Aguila Maximiliano - Bianchini German</p>
     </div>
   </footer>
 
