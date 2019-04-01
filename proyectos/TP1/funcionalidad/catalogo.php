@@ -1,46 +1,134 @@
 <?php
 
+class Catalogo {
+    public $servidor;
+    public $puerto;
+    public $esquema;
+    public $usuario;
+    public $clave;
+    public $db;
 
+    public function __construct($servidor = 'localhost', $puerto = '33062', $esquema = 'tp1', $usuario = 'root', $clave = 'appweb') {
+        $this->servidor = $servidor;
+        $this->puerto = $puerto;
+        $this->esquema = $esquema;
+        $this->usuario = $usuario;
+        $this->clave = $clave;
+        $this->db = new PDO("mysql:host=$this->servidor:$this->puerto;dbname=$this->esquema", $this->usuario, $this->clave);
+        $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $this->db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    }
 
-function getProductos() {
-    // $mysqli = new mysqli('localhost', 'root', 'appweb', 'tp1');
-    
-    // if ($mysqli->connect_error) {
-    //     // TODO: Escribir un log.
-    //     return [];
-    // } else {
-    //     $sql = "select * from productos where id=".$id.";";
-    //     if ($resultado = $mysqli->query($sql)) {
-    //         return $resultado;
-    //     } else {
-    //         // TODO: Escribir en un log.
-    //         return [];
-    //     }
-    // }
-    // $db = new PDO('mysql:host=localhost;dbname=tp1', 'root', 'appweb');
-    // return $db->query('show tables;');
-    return [
-        [
-            "nombre" => "producto",
-            "descripcion" => "una descripcion re peola vago",
-            "precio" => 9999.00,
-            "stock" => 10
-        ],
-        [
-            "nombre" => "otro producto",
-            "descripcion" => "otra descripcion re peola vago",
-            "precio" => 1.00,
-            "stock" => 0
-        ]
-    ];
+    /**
+     * Devuelve todos los productos del catalogo.
+     * 
+     * @return array
+     */
+    public function getProductos() {
+        try {
+            if ($this->db) {
+                // Ejecuta la consulta.
+                $consulta = $this->db->query('select * from productos;');
+                return $consulta->fetchAll();
+            } else {
+                // TODO: No pude conectarme a la base, mostrar el error.
+                return [];
+            }
+        } catch (PDOException $e) {
+            // TODO: Ocurrio un error en la consulta.
+            return [];
+        }
+    }
+
+    /**
+     * Devuelve un producto dado un id.
+     * 
+     * @param integer $id
+     * @return array $producto
+     */
+    public function getProducto($id) {
+        try {
+            if ($this->db) {
+                // Ejecuta la consulta.
+                $consulta = $this->db->query("select * from productos where id=$id;");
+                return $consulta->fetchAll();
+            } else {
+                // TODO: No pude conectarme a la base, mostrar el error.
+                return [];
+            }
+        } catch (PDOException $e) {
+            // TODO: Ocurrio un error en la consulta.
+            return [];
+        }
+    }
+
+    /**
+     * Incrementa el stock de un producto.
+     * 
+     * @param integer $id
+     * @param integer $cantidad
+     * @return boolean $incrementado
+     */
+    public function incrementarStock($id, $cantidad) {
+        try {
+            if ($this->db) {
+                // Ejecuta la consulta.
+                $consulta = $this->db->query("select * from productos where id=$id");
+                $producto = $consulta->fetch();
+                
+                // Verifico si el producto existe.
+                if ($producto) {
+                    $this->db->query("update productos set stock=".($producto['stock'] + $cantidad)." where id=$id;");
+                    return true;
+                } else {
+                    // TODO: El producto no existe.
+                    return false;
+                }
+            } else {
+                // TODO: No pude conectarme a la base, mostrar el error.
+                return false;
+            }
+        } catch (PDOException $e) {
+            // TODO: Ocurrio un error en la consulta.
+            return false;
+        }
+    }
+
+    /**
+     * Decrementa el stock de un producto dado en una cantidad dada.
+     * 
+     * @param integer $id
+     * @param integer $cantidad
+     * @return boolean $decrementado
+     */
+    public function decrementarStock($id, $cantidad) {
+        try {
+            if ($this->db) {
+                // Ejecuta la consulta.
+                $consulta = $this->db->query("select * from productos where id=$id");
+                $producto = $consulta->fetch();
+                
+                // Verifico si el producto existe.
+                if ($producto) {
+                    if ($cantidad <= intval($producto['stock'])) {
+                        $this->db->query("update productos set stock=".($producto['stock'] - $cantidad)." where id=$id;");
+                        return true;
+                    } else {
+                        // TODO: La cantidad de elementos pedidos no se puede satisfacer.
+                        return false;
+                    }
+                } else {
+                    // TODO: El producto no existe.
+                    return false;
+                }
+            } else {
+                // TODO: No pude conectarme a la base, mostrar el error.
+                return false;
+            }
+        } catch (PDOException $e) {
+            // TODO: Ocurrio un error en la consulta.
+            return false;
+        }
+    }
 }
-
-function incrementarStock($id, $cantidad) {
-
-}
-
-function decrementarStock($id, $cantidad) {
-    
-}
-
 ?>
