@@ -1,2 +1,3 @@
-docker/bdd_files
+docker/bdd_files/*
+docker/logs/apache2/*
 sesiones/*

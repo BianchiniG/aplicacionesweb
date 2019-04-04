@@ -1,21 +1,23 @@
 <?php
 function login() {
+    require_once "credenciales.php";
+
     session_set_cookie_params(3600,"/");
     session_start();
     
     if ( isset( $_POST['email'] ) && isset( $_POST['pass'] ) ) {
         // Creamos la conexion a la base.
-        $db = new PDO("mysql:host=172.21.0.2:3306;dbname=tp1", "root", "appweb");
+        $db = new PDO("mysql:host=$servidor:$puerto;dbname=$esquema", $usuario, $clave);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         
         // Verificamos si el usuario existe.
         try {
             // Chequeo si existe el usuario en la base.
-            $email = $_POST['email'];
-            $clave = $_POST['pass'];
+            $email_request = $_POST['email'];
+            $clave_request = $_POST['pass'];
     
-            $sql = "select * from usuarios where email='$email' and clave='$clave';";
+            $sql = "select * from usuarios where email='$email_request' and clave='$clave_request';";
             $consulta = $db->query($sql);
             $usuario = $consulta->fetch();
     

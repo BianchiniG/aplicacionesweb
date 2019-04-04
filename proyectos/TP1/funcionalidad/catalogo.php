@@ -1,5 +1,6 @@
 <?php
 
+
 class Catalogo {
     public $servidor;
     public $puerto;
@@ -7,8 +8,10 @@ class Catalogo {
     public $usuario;
     public $clave;
     public $db;
+    
+    public function __construct() {
+        require_once "credenciales.php";
 
-    public function __construct($servidor = '172.21.0.2', $puerto = '3306', $esquema = 'tp1', $usuario = 'root', $clave = 'appweb') {
         $this->servidor = $servidor;
         $this->puerto = $puerto;
         $this->esquema = $esquema;
