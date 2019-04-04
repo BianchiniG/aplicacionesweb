@@ -26,9 +26,6 @@ session_start();
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.php">Tienda</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <?php 
@@ -40,8 +37,13 @@ session_start();
             echo "<li class=\"nav-item\">";
             echo "  <a class=\"nav-link carrito fa fa-shopping-cart\" href=\"carrito.php\"></a>";
             echo "</li>";
-            echo "<li class=\"nav-item\">";
-            echo "  <a class=\"nav-link\" href=\"#\">Cerrar Sesion</a>";
+            echo "<li class=\"nav-item dropdown\">";
+            echo "  <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdownMenuLink\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">";
+                echo $_SESSION['username'];
+            echo "  </a>";
+            echo "  <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdownMenuLink\">";
+            echo "    <a class=\"dropdown-item\" href=\"#\">Cerrar Sesion</a>";
+            echo "  </div>";
             echo "</li>";
           }
           ?>
