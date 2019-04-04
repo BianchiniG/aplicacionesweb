@@ -1,3 +1,8 @@
+<?php 
+require_once "funcionalidad/sesion.php"; 
+login();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,8 +26,6 @@
 </head>
 
 <body>
-  <?php require_once "funcionalidad/sesion.php"; ?>
-
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.php">Tienda</a>
@@ -33,7 +36,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <!-- Deshabilitar si el usuario no esta logueado -->
-            <a class="nav-link carrito fa fa-shopping-cart" href="carrito.php"></a>
+            <!-- <a class="nav-link carrito fa fa-shopping-cart" href="carrito.php"></a> -->
           </li>
         </ul>
       </div>
@@ -43,7 +46,7 @@
     <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="POST">
 					<span class="login100-form-title p-b-26">
 						Bienvenido
 					</span>
@@ -52,7 +55,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" name="email">
+						<input id="email" class="input100" type="text" name="email">
 						<span class="focus-input100" data-placeholder="Email"></span>
 					</div>
 
@@ -60,14 +63,14 @@
 						<span class="btn-show-pass">
 							<i class="zmdi zmdi-eye"></i>
 						</span>
-						<input class="input100" type="password" name="pass">
+						<input id="password" class="input100" type="password" name="pass">
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">
+							<button class="login100-form-btn" type="submit">
 								Iniciar Sesión
 							</button>
 						</div>

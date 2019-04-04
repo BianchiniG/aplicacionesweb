@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +21,7 @@
 
 <body>
   <?php require_once "funcionalidad/catalogo.php" ?>
+  <?php require_once "funcionalidad/sesion.php" ?>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
@@ -27,14 +31,20 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <!-- Deshabilitar si el usuario no esta logueado -->
-            <a class="nav-link carrito fa fa-shopping-cart" href="carrito.php"></a>
-          </li>
-          <li class="nav-item">
-            <!-- Mostrar otra cosa si esta logueado -->
-            <a class="nav-link" href="login.php">Iniciar Sesion</a>
-          </li>
+          <?php 
+          if (!isset($_SESSION['user_id'])) {
+            echo "<li class=\"nav-item\">";
+            echo "  <a class=\"nav-link\" href=\"login.php\">Iniciar Sesion</a>";
+            echo "</li>";
+          } else {
+            echo "<li class=\"nav-item\">";
+            echo "  <a class=\"nav-link carrito fa fa-shopping-cart\" href=\"carrito.php\"></a>";
+            echo "</li>";
+            echo "<li class=\"nav-item\">";
+            echo "  <a class=\"nav-link\" href=\"#\">Cerrar Sesion</a>";
+            echo "</li>";
+          }
+          ?>
         </ul>
       </div>
     </div>

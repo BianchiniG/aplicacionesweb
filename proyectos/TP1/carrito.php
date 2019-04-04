@@ -29,12 +29,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <!-- Deshabilitar si el usuario no esta logueado -->
-            <a class="nav-link carrito fa fa-shopping-cart" href="carrito.php"></a>
-          </li>
-          <li class="nav-item">
-            <!-- Mostrar otra cosa si esta logueado -->
-            <a class="nav-link" href="login.php">Iniciar Sesion</a>
+            <a class="nav-link" href="#">Cerrar Sesion</a>
           </li>
         </ul>
       </div>

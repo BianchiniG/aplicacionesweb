@@ -8,13 +8,13 @@ class Catalogo {
     public $clave;
     public $db;
 
-    public function __construct($servidor = 'localhost', $puerto = '33062', $esquema = 'tp1', $usuario = 'root', $clave = 'appweb') {
+    public function __construct($servidor = '172.21.0.2', $puerto = '3306', $esquema = 'tp1', $usuario = 'root', $clave = 'appweb') {
         $this->servidor = $servidor;
         $this->puerto = $puerto;
         $this->esquema = $esquema;
         $this->usuario = $usuario;
         $this->clave = $clave;
-        $this->db = new PDO("mysql:host=$this->servidor:$this->puerto;dbname=$this->esquema", $this->usuario, $this->clave);
+        $this->db = new PDO("mysql:host=$servidor:$puerto;dbname=$esquema", $usuario, $clave);
         $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     }
