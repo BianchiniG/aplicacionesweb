@@ -1,0 +1,38 @@
+.isa_info, .isa_success, .isa_warning, .isa_error {
+    margin: 0px 0px 10px 0px;
+    padding: 1px 0px 0px 5px; 
+}
+
+.isa_info {
+    color: #00529B;
+    background-color: #BDE5F8;
+}
+.isa_success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}
+.isa_warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+}
+.isa_error {
+    color: #D8000C;
+    background-color: #FFD2D2;
+}
+
+.jumbotron {
+    background-image: url(../img/banner.png);
+    height: 370px;
+}
+
+.carrito {
+    font-size: 22px;
+}
+
+.boton-borrar-carrito {
+    width: 150px;
+}
+
+.boton-comprar {
+    width: 150px;
+}
