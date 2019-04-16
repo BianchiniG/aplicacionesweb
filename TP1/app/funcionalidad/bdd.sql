@@ -25,6 +25,7 @@ create table usuarios (
 create table compras (
   id int(10) primary key auto_increment,
   id_usuario int(10),
+  fecha datetime,
   precio_final double
 );
 ALTER TABLE compras ADD CONSTRAINT fk_usuario_id FOREIGN KEY (id_usuario) REFERENCES usuarios (id);

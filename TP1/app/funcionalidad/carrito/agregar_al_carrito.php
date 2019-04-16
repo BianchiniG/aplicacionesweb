@@ -4,7 +4,7 @@ header('Content-Type: application/json');
 
 // Verifico si el usuario esta logueado.
 if (isset($_SESSION['user_id'])) {
-    $servidor = '172.23.0.2'; 
+    $servidor = '172.20.0.2'; 
     $puerto = '3306';
     $esquema = 'tp1';
     $usuario = 'appweb';
