@@ -1,0 +1,38 @@
+version: '3'
+services:
+  app:
+    build:
+      context: ./build
+    image: germanb/laravel:latest
+    container_name: appweb_laravel_app
+    volumes:
+      - ./app:/var/www/html/
+      - ./apache_files:/var/log/apache2
+    ports:
+      - "80:80"
+    depends_on:
+      - bdd
+  bdd:
+    image: mysql:5.7
+    container_name: appweb_laravel_bdd
+    ports:
+      - "33060:3306"
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: testing
+      MYSQL_ROOT_PASSWORD: testing
+    volumes:
+      - ./bdd_files:/var/lib/mysql
+  pma:
+    image: phpmyadmin/phpmyadmin
+    container_name: appweb_laravel_pma
+    depends_on:
+      - bdd
+    ports:
+      - 9090:80
+    environment:
+      - PMA_HOST=bdd
+      - TESTSUITE_PASSWORD=testing
+    external_links:
+      - bdd:db
