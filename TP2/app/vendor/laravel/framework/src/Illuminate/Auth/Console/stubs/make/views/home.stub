@@ -1,8 +1,4 @@
-@extends('base.base')
-
-@section('estilos')
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-@endsection
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
