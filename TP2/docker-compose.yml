@@ -9,7 +9,7 @@ services:
       - ./app:/var/www/html/
       - ./apache_files:/var/log/apache2
     ports:
-      - "80:80"
+      - "8000:80"
     depends_on:
       - bdd
   bdd:
@@ -30,7 +30,7 @@ services:
     depends_on:
       - bdd
     ports:
-      - 9090:80
+      - 9000:80
     environment:
       - PMA_HOST=bdd
       - TESTSUITE_PASSWORD=testing
