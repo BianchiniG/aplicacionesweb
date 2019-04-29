@@ -13,10 +13,19 @@ class SubtituloTableSeeder extends Seeder
     public function run()
     {
         Subtitulo::create(array(
-            'nombre' => '',
-            'contenido' => '',
-            'orden' => '',
-            'id_tramite' => ''
+            'contenido' => '¿Donde?',
+            'orden' => 2,
+            'id_tramite' => 1
+        ));
+        Subtitulo::create(array(
+            'contenido' => '¿Que tengo que llevar?',
+            'orden' => 4,
+            'id_tramite' => 1
+        ));
+        Subtitulo::create(array(
+            'contenido' => '¿Hasta cuando tengo tiempo?',
+            'orden' => 6,
+            'id_tramite' => 1
         ));
     }
 }

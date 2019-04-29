@@ -13,8 +13,16 @@ class ItemsTableSeeder extends Seeder
     public function run()
     {
         Item::create(array(
-            'contenido' => '',
-            'id_lista' => ''
+            'contenido' => 'Fotocopia del DNI',
+            'id_lista' => 1
+        ));
+        Item::create(array(
+            'contenido' => 'Fotocopia Titulo Secundario',
+            'id_lista' => 1
+        ));
+        Item::create(array(
+            'contenido' => 'Foto Carnet',
+            'id_lista' => 1
         ));
     }
 }

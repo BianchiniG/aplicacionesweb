@@ -15,7 +15,6 @@ class Subtitulo extends Migration
     {
         Schema::create('subtitulos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
             $table->text('contenido');
             $table->integer('orden');
             $table->integer('id_tramite')->unsigned();

@@ -13,10 +13,14 @@ class TextoTableSeeder extends Seeder
     public function run()
     {
         Texto::create(array(
-            'nombre' => '',
-            'contenido' => '',
-            'orden' => '',
-            'id_tramite' => ''
+            'contenido' => 'En la uni :D',
+            'orden' => 3,
+            'id_tramite' => 1
+        ));
+        Texto::create(array(
+            'contenido' => 'Fijate',
+            'orden' => 7,
+            'id_tramite' => 1
         ));
     }
 }
