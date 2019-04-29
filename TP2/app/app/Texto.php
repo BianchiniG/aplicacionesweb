@@ -9,6 +9,7 @@ class Texto extends Model
     protected $table = 'textos';
     protected $primaryKey = 'id';
     protected $fillable = [
+        'titulo',
         'contenido'
     ];
     public $timestamps = false;

@@ -9,9 +9,11 @@ class Lista extends Model
     protected $table = 'listas';
     protected $primaryKey = 'id';
     protected $fillable = [
+        'titulo',
         'descripcion'
     ];
     public $timestamps = false;
+    protected $with = ['items']; // Carga ansiosa de Items
 
      // Relaciones entre Entidades
      public function tramite(){

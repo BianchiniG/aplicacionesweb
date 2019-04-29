@@ -29,9 +29,23 @@ class Tramite extends Model
 
     // Retorna TODOS los Tramites.
     public function findAll() {
+        return Tramite::all();
     }
 
     // Busca un Tramite por ID
     public function findById($id){
+        return Tramite::find($id);
+        }
+
+    // Retorna todos los componentes de ese tramite
+    public function getComponentes(){
+        $textos = $this->componentesTexto;
+        $listas = $this->componentesLista;
+
+        $componentes = $textos->concat($listas);
+
+        return $componentes->sortBy('orden');
     }
+
+
 }

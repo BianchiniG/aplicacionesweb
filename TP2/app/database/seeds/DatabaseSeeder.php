@@ -7,7 +7,6 @@ require_once "UsersTableSeeder.php";
 require_once "ItemsTableSeeder.php";
 require_once "ListaTableSeeder.php";
 require_once "TextoTableSeeder.php";
-require_once "SubtituloTableSeeder.php";
 require_once "TramiteTableSeeder.php";
 
 class DatabaseSeeder extends Seeder
@@ -24,6 +23,5 @@ class DatabaseSeeder extends Seeder
         $this->call(ListaTableSeeder::class);
         $this->call(ItemsTableSeeder::class);
         $this->call(TextoTableSeeder::class);
-        $this->call(SubtituloTableSeeder::class);
     }
 }

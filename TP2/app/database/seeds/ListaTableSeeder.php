@@ -13,6 +13,7 @@ class ListaTableSeeder extends Seeder
     public function run()
     {
         Lista::create(array(
+            'titulo' => '¿Que tengo que llevar?',
             'descripcion' => 'Que tengo que llevar para anotarme a la carrera de la Universidad',
             'orden' => 5,
             'id_tramite' => 1
