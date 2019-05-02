@@ -27,6 +27,11 @@ class Tramite extends Model
         return $this->hasMany('App\Texto','id_tramite','id');
     }
 
+    // Crea un nuevo tramite.
+    public function createTramite($datos) {
+        return Tramite::create($datos);
+    }
+
     // Retorna TODOS los Tramites.
     public function findAll() {
         return Tramite::all();

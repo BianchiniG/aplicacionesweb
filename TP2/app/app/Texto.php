@@ -18,5 +18,4 @@ class Texto extends Model
     public function tramite(){
         return $this->belongsTo('App\Tramite','id_tramite','id');
     }
-
 }

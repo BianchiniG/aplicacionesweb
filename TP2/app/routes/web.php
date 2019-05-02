@@ -19,4 +19,13 @@ Auth::routes(['register' => false]);
 
 Route::group(['middleware' => ['auth'], 'prefix' => '/admin'], function() {
     Route::get('/', 'AdminController@index')->name('admin_home');
+
+    // Rutas para los tramites.
+    Route::get('/tramites', 'TramiteController@all');
+    Route::get('/tramite/{id}', 'TramiteController@getTramite');
+    Route::post('/tramite/new', 'TramiteController@create');
+    Route::post('/tramite/update', 'TramiteController@update');
+    Route::get('/tramite/{id}', 'TramiteController@delete');
+
+    
 });
