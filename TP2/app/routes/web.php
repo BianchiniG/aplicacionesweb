@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('index_public');
 })->name('public_home');
 
 Auth::routes(['register' => false]);
@@ -27,5 +27,5 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin'], function() {
     Route::post('/tramite/update', 'TramiteController@update');
     Route::delete('/tramite/{id}', 'TramiteController@delete');
 
-    
+
 });
