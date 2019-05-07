@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('public_home');
 
 Auth::routes(['register' => false]);
 
@@ -25,7 +25,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin'], function() {
     Route::get('/tramite/{id}', 'TramiteController@getTramite');
     Route::post('/tramite/new', 'TramiteController@create');
     Route::post('/tramite/update', 'TramiteController@update');
-    Route::get('/tramite/{id}', 'TramiteController@delete');
+    Route::delete('/tramite/{id}', 'TramiteController@delete');
 
     
 });

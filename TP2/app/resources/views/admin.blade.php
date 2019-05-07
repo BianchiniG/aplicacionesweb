@@ -1,11 +1,19 @@
 @extends('base.base')
 
 @section('estilos')
+<script src="{{ asset('js/admin.js') }}" defer></script>
 @endsection
 
-@section('contenido')
-    @include('navbar.admin')
+@section('contenidos')
 
-    <example-component></example-component>
-    <hola></hola>
+    <div class="main-panel">
+        <div class="content">
+            @include('navbar.admin')
+            @include('admin.sidebar')
+        
+            <div id="admin">
+                @yield('contenido_admin')
+            </div>
+        </div>
+    </div>
 @endsection

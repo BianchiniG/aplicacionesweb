@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Tramite;
 
 class TramiteController extends Controller
 {
@@ -56,7 +57,7 @@ class TramiteController extends Controller
      * @param integer $id
      * @return App\Tramite $tramite
      */
-    public function getTramite(integer $id) {
+    public function getTramite($id) {
         $tramite = new Tramite();
         return $tramite->findById($id);
     }
