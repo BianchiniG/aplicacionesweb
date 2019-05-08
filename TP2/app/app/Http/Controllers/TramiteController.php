@@ -9,7 +9,7 @@ class TramiteController extends Controller
 {
     /**
      * Crea un nuevo tramite.
-     * 
+     *
      * @param array $request
      * @return App\Tramite $tramite
      */
@@ -20,7 +20,7 @@ class TramiteController extends Controller
 
     /**
      * Actualiza un tramite.
-     * 
+     *
      * @param array $request
      * @return App\Tramite $tramite
      */
@@ -31,7 +31,7 @@ class TramiteController extends Controller
 
     /**
      * Borra un tramite.
-     * 
+     *
      * @param integer $id
      * @return boolean $borrado
      */
@@ -42,18 +42,18 @@ class TramiteController extends Controller
 
     /**
      * Devuelve todos los tramites.
-     * 
+     *
      * @param array $request
      * @return collection $tramites
      */
     public function all(Request $request) {
         $tramite = new Tramite();
-        return $tramite->findAll();
+        return response()->json(['tramites' => $tramite->findAll()]);
     }
 
     /**
      * Devuelve un tramite dado un id.
-     * 
+     *
      * @param integer $id
      * @return App\Tramite $tramite
      */

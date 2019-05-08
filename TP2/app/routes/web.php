@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('index_public');
 })->name('public_home');
 
+Route::get('/tramites', 'TramiteController@all');
+
 Auth::routes(['register' => false]);
 
 Route::group(['middleware' => ['auth'], 'prefix' => '/admin'], function() {

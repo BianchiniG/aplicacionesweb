@@ -23,6 +23,7 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/public/ExampleComponent.vue').default);
 Vue.component('hola', require('./components/public/Hola.vue').default);
 Vue.component('tramite', require('./components/public/Tramite.vue').default);
+Vue.component('tramites', require('./components/public/Tramites.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

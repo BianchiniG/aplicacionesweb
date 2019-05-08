@@ -13,5 +13,6 @@
     <div id="app">
         <example-component></example-component>
         <tramite></tramite>
+        <tramites></tramites>
     </div>
 @endsection
