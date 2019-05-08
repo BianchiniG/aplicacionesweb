@@ -1,6 +1,7 @@
 @extends('base.base')
 
 @section('estilos')
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     <script src="{{ asset('js/admin.js') }}" defer></script>
 @endsection
 
@@ -9,6 +10,8 @@
 @endsection
 
 @section('contenido')
-    asd
+    <div id="admin">
+        <tramite></tramite>
+    </div>
 @endsection
 

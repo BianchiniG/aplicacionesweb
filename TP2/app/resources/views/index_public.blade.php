@@ -1,7 +1,8 @@
 @extends('base.base')
 
 @section('estilos')
-<script src="{{ asset('js/app.js') }}" defer></script>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <script src="{{ asset('js/app.js') }}" defer></script>
 @endsection
 
 @section('barra_navegacion')
@@ -10,6 +11,7 @@
 
 @section('contenido')
     <div id="app">
-        @yield('contenido_publico')
+        <example-component></example-component>
+        <tramite></tramite>
     </div>
 @endsection
