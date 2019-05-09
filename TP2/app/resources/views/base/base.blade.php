@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,11 +8,11 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    @yield('estilos')
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
     <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/templatemo-style.css') }}">
-    @yield('estilos')
 </head>
 <body id="reportsPage">
     <div class="" id="home">
@@ -37,4 +38,5 @@
     <script src="{{ asset('js/tooplate-scripts.js') }}"></script>
     @yield('scripts')
 </body>
+
 </html>
