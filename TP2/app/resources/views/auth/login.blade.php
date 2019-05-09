@@ -42,7 +42,7 @@
 
                             <div class="form-group mt-4">
                                 <button type="submit" class="btn btn-primary btn-block text-uppercase">
-                                    {{ __('Dale que va!') }}
+                                    {{ __('Iniciar Sesion') }}
                                 </button>
                             </div>
                         </form>

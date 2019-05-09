@@ -72,4 +72,34 @@ class TramiteController extends Controller
         $tramite = new Tramite();
         return $tramite->findById($id);
     }
+
+    /**
+     * Devuelve la vista de creacion de tramites.
+     * 
+     * @param Request $request
+     * @return view
+     */
+    public function nuevoTramiteView(Request $request) {
+        return view('admin.nuevo_tramite');
+    }
+
+    /**
+     * Devuelve la vista de listado de tramites.
+     * 
+     * @param Request $request
+     * @return view
+     */
+    public function listaTramitesView(Request $request) {
+        return view('admin.lista_tramites');
+    }
+
+    /**
+     * Devuelve la vista de edicion de un tramite.
+     * 
+     * @param integer $id
+     * @return view
+     */
+    public function editarTramiteView(Request $request) {
+        return view('admin.editar_tramite');
+    }
 }
