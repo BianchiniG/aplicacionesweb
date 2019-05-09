@@ -351,6 +351,19 @@ thead {
   background-color: transparent;
   border: 2px solid #f5a623;
 }
+.btn-danger {
+    color: #fff;
+    background-color: #d0211c;
+    border: 2px solid #c51f1a;
+    font-size: 90%;
+    font-weight: 600;
+  }
+  .btn-danger:active,
+  .btn-danger:hover {
+    color: #d0211c;
+    background-color: transparent;
+    border: 2px solid #c51f1a;
+  }
 .custom-file-input {
   cursor: pointer;
 }

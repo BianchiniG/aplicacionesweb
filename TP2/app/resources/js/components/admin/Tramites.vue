@@ -1,11 +1,33 @@
 <template>
 <div class="container">
-    <div v-for="tramite in tramites" :key="tramite.id">
-        <div>{{ tramite.id }}</div>
-        <div>{{ tramite.titulo }}</div>
-        <div>{{ tramite.descripcion }}</div>
+        <div class="row">
+            <div class="col-md-4" v-for="tramite in tramites" :key="tramite.id">
+                <div class="col-xs-12">
+                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                        <div class="mainflip">
+                            <div class="frontside">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h4 class="card-title">{{ tramite.titulo }}</h4>
+                                        <p class="card-text">{{ tramite.descripcion }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="backside">
+                                <div class="card">
+                                    <div class="card-body text-center mt-4">
+                                        <h4 class="card-title">{{ tramite.titulo }}</h4>
+                                        <button class="btn btn-primary btn-block text-uppercase">Editar</button>
+                                        <button class="btn btn-danger btn-block text-uppercase">Borrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 </template>
 
 <script>
