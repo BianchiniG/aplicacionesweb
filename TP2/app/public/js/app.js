@@ -1841,6 +1841,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -1853,7 +1874,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      tramites: []
+      tramites: [1, 2, 3]
     };
   }
 });
@@ -37265,20 +37286,62 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    _vm._l(_vm.tramites, function(tramite) {
-      return _c("div", { key: tramite.id }, [
-        _c("div", [_vm._v(_vm._s(tramite.id))]),
-        _vm._v(" "),
-        _c("div", [_vm._v(_vm._s(tramite.titulo))]),
-        _vm._v(" "),
-        _c("div", [_vm._v(_vm._s(tramite.descripcion))])
-      ])
-    }),
-    0
-  )
+  return _c("div", { staticClass: "container" }, [
+    _c(
+      "div",
+      { staticClass: "row" },
+      _vm._l(_vm.tramites, function(tramite) {
+        return _c("div", { key: tramite.id, staticClass: "col-md-4" }, [
+          _c("div", { staticClass: "col-xs-12" }, [
+            _c(
+              "div",
+              {
+                staticClass: "image-flip",
+                attrs: { ontouchstart: "this.classList.toggle('hover');" }
+              },
+              [
+                _c("div", { staticClass: "mainflip" }, [
+                  _c("div", { staticClass: "frontside" }, [
+                    _c("div", { staticClass: "card" }, [
+                      _c("div", { staticClass: "card-body text-center" }, [
+                        _c("h4", { staticClass: "card-title" }, [
+                          _vm._v(_vm._s(tramite.titulo))
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "card-text" }, [
+                          _vm._v(_vm._s(tramite.descripcion))
+                        ])
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "backside" }, [
+                    _c("div", { staticClass: "card" }, [
+                      _c("div", { staticClass: "card-body text-center mt-4" }, [
+                        _c("h4", { staticClass: "card-title" }, [
+                          _vm._v(_vm._s(tramite.titulo))
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-primary btn-block text-uppercase"
+                          },
+                          [_vm._v("Ver Tramite")]
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            )
+          ])
+        ])
+      }),
+      0
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

@@ -13,8 +13,8 @@ class TramiteTableSeeder extends Seeder
     public function run()
     {
         Tramite::create(array(
-            'titulo' => 'Inscripcion',
-            'descripcion' => 'Para inscribirse :D'
+            'titulo' => 'Otro Tramite',
+            'descripcion' => 'Para otra cosa'
         ));
     }
 }

@@ -11,8 +11,7 @@
 
 @section('contenido')
     <div id="app">
-        <example-component></example-component>
-        <tramite></tramite>
+        <h5 class="section-title h1">TRAMITES</h5>
         <tramites></tramites>
     </div>
 @endsection

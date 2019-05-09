@@ -16,7 +16,7 @@ class ListaTableSeeder extends Seeder
             'titulo' => '¿Que tengo que llevar?',
             'descripcion' => 'Que tengo que llevar para anotarme a la carrera de la Universidad',
             'orden' => 5,
-            'id_tramite' => 1
+            'id_tramite' => 2
         ));
     }
 }

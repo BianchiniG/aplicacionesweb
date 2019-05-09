@@ -16,13 +16,13 @@ class TextoTableSeeder extends Seeder
             'titulo' => '¿Donde?',
             'contenido' => 'En la uni :D',
             'orden' => 3,
-            'id_tramite' => 1
+            'id_tramite' => 2
         ));
         Texto::create(array(
             'titulo' => '¿Hasta cuando tengo tiempo?',
             'contenido' => 'Fijate',
             'orden' => 7,
-            'id_tramite' => 1
+            'id_tramite' => 2
         ));
     }
 }
