@@ -11,23 +11,27 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index_public');
-})->name('public_home');
-
+/**
+ * Rutas publicas.
+ */
+Route::get('/', 'HomeController@index')->name('public_home');
 Route::get('/tramites', 'TramiteController@all');
+Route::get('/tramite/{id}', 'TramiteController@getTramite');
 
+/**
+ * Rutas de autentificacion.
+ */
 Auth::routes(['register' => false]);
 
+/**
+ * Rutas que requieren estar autenticado
+ */
 Route::group(['middleware' => ['auth'], 'prefix' => '/admin'], function() {
     Route::get('/', 'AdminController@index')->name('admin_home');
 
-    // Rutas para los tramites.
     Route::get('/tramites', 'TramiteController@all');
     Route::get('/tramite/{id}', 'TramiteController@getTramite');
     Route::post('/tramite/new', 'TramiteController@create');
     Route::post('/tramite/update', 'TramiteController@update');
     Route::delete('/tramite/{id}', 'TramiteController@delete');
-
-
 });

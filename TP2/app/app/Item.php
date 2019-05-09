@@ -18,4 +18,15 @@ class Item extends Model
         return $this->belongsTo('App\Lista','id_lista','id');
     }
 
+    /**
+     * Devuelve un item.
+     * 
+     * @param integer $id
+     * @return App\Item
+     */
+    public function getItemById($id) {
+        return Item::find($id);
+    }
+
+    
 }

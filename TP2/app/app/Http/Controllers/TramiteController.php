@@ -19,14 +19,25 @@ class TramiteController extends Controller
     }
 
     /**
-     * Actualiza un tramite.
+     * Actualiza los datos basicos de un tramite.
      *
-     * @param array $request
+     * @param Request $request
      * @return App\Tramite $tramite
      */
     public function update(Request $request){
         $tramite = new Tramite();
-        return $tramite->findById($id)->update(array($request));
+        return $tramite->findById($request->id)->update(array($request));
+    }
+
+    /**
+     * Actualiza los componentes de un tramite.
+     * 
+     * @param Request $request
+     * @return App\Tramite $tramite
+     */
+    public function updateComponents(Request $request) {
+        $tramite = new Tramite();
+        return $tramite->findById($request->id)->updateComponents($request);
     }
 
     /**
