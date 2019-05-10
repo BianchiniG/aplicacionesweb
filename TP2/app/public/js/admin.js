@@ -1844,6 +1844,17 @@ __webpack_require__.r(__webpack_exports__);
     return {
       tramites: []
     };
+  },
+  methods: {
+    editarTramite: function editarTramite(id) {
+      window.location = '/admin/editar_tramite/' + id;
+    },
+    borrarTramite: function borrarTramite(id) {
+      alert("Borrando tramite " + id + "!");
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]('/admin/tramite/' + id).then(function (res) {
+        console.log(res.data.tramites);
+      });
+    }
   }
 });
 
@@ -37223,7 +37234,12 @@ var render = function() {
                           "button",
                           {
                             staticClass:
-                              "btn btn-primary btn-block text-uppercase"
+                              "btn btn-primary btn-block text-uppercase",
+                            on: {
+                              click: function($event) {
+                                return _vm.editarTramite(tramite.id)
+                              }
+                            }
                           },
                           [_vm._v("Editar")]
                         ),
@@ -37232,7 +37248,12 @@ var render = function() {
                           "button",
                           {
                             staticClass:
-                              "btn btn-danger btn-block text-uppercase"
+                              "btn btn-danger btn-block text-uppercase",
+                            on: {
+                              click: function($event) {
+                                return _vm.borrarTramite(tramite.id)
+                              }
+                            }
                           },
                           [_vm._v("Borrar")]
                         )

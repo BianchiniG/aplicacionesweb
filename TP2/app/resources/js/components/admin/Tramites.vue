@@ -17,8 +17,8 @@
                                 <div class="card">
                                     <div class="card-body text-center mt-4">
                                         <h4 class="card-title">{{ tramite.titulo }}</h4>
-                                        <button class="btn btn-primary btn-block text-uppercase">Editar</button>
-                                        <button class="btn btn-danger btn-block text-uppercase">Borrar</button>
+                                        <button class="btn btn-primary btn-block text-uppercase" v-on:click="editarTramite(tramite.id)">Editar</button>
+                                        <button class="btn btn-danger btn-block text-uppercase" v-on:click="borrarTramite(tramite.id)">Borrar</button>
                                     </div>
                                 </div>
                             </div>
@@ -44,6 +44,17 @@
         data() {
             return {
                 tramites:[]
+            }
+        },
+        methods: {
+            editarTramite: function (id) {
+                window.location = '/admin/editar_tramite/'+id;
+            },
+            borrarTramite: function (id) {
+                alert("Borrando tramite " + id + "!")
+                axios.delete('/admin/tramite/'+id).then((res) => {
+                    console.log(res.data.tramites);
+                })
             }
         }
     }

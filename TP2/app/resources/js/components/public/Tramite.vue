@@ -11,6 +11,7 @@
                         <div class="row" v-for="componente in datostramite.componentes" :key="componente.id">
                             {{ componente.id }}:
                             {{ componente }}
+                            <hola :datos="componente"></hola>
                         </div>
                     </div>
                 </div>
