@@ -15,6 +15,9 @@
  * Rutas publicas.
  */
 Route::get('/', 'HomeController@index')->name('public_home');
+
+Route::get('ver_tramite/{id}', 'TramiteController@verTramiteView');
+
 Route::get('/tramites', 'TramiteController@all');
 Route::get('/tramite/{id}', 'TramiteController@getTramite');
 

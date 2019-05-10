@@ -37225,7 +37225,7 @@ var render = function() {
                             staticClass:
                               "btn btn-primary btn-block text-uppercase"
                           },
-                          [_vm._v("Editar Tramite")]
+                          [_vm._v("Editar")]
                         ),
                         _vm._v(" "),
                         _c(
@@ -37234,7 +37234,7 @@ var render = function() {
                             staticClass:
                               "btn btn-danger btn-block text-uppercase"
                           },
-                          [_vm._v("Editar Tramite")]
+                          [_vm._v("Borrar")]
                         )
                       ])
                     ])
@@ -49634,7 +49634,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/maxi/Documentos/Maxi/aplicacionesweb/TP2/app/resources/js/admin.js */"./resources/js/admin.js");
+module.exports = __webpack_require__(/*! /var/www/html/resources/js/admin.js */"./resources/js/admin.js");
 
 
 /***/ })

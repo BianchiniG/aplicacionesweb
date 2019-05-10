@@ -1812,9 +1812,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['datostramite'],
   mounted: function mounted() {
-    console.log('Se cargo el tramite.');
+    console.log(this.datostramite);
   }
 });
 
@@ -37241,30 +37247,44 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("desde el public")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("p", [_vm._v("Yo soy un tramite")])
-            ])
-          ])
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v("desde el public")
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "card-body" },
+            [
+              _c("p", [
+                _vm._v("Yo soy el tramite " + _vm._s(_vm.datostramite.id))
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Mis componentes son: ")]),
+              _vm._v(" "),
+              _vm._l(_vm.datostramite.componentes, function(componente) {
+                return _c("div", { key: componente.id, staticClass: "row" }, [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(componente.id) +
+                      ":\n                        " +
+                      _vm._s(_vm.get_class(componente)) +
+                      "\n                    "
+                  )
+                ])
+              })
+            ],
+            2
+          )
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -37328,7 +37348,13 @@ var render = function() {
                             staticClass:
                               "btn btn-primary btn-block text-uppercase"
                           },
-                          [_vm._v("Ver Tramite")]
+                          [
+                            _c(
+                              "a",
+                              { attrs: { href: "/ver_tramite/" + tramite.id } },
+                              [_vm._v("Ver Tramite")]
+                            )
+                          ]
                         )
                       ])
                     ])
@@ -49874,9 +49900,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/maxi/Documentos/Maxi/aplicacionesweb/TP2/app/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/maxi/Documentos/Maxi/aplicacionesweb/TP2/app/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/maxi/Documentos/Maxi/aplicacionesweb/TP2/app/resources/sass/admin.scss */"./resources/sass/admin.scss");
+__webpack_require__(/*! /var/www/html/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /var/www/html/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /var/www/html/resources/sass/admin.scss */"./resources/sass/admin.scss");
 
 
 /***/ })

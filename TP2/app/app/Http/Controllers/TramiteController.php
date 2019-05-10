@@ -102,4 +102,20 @@ class TramiteController extends Controller
     public function editarTramiteView(Request $request) {
         return view('admin.editar_tramite');
     }
+
+    /**
+     * Devuelve la vista de ver un tramite.
+     * 
+     * @param integer $id
+     * @return view
+     */
+    public function verTramiteView($id) {
+        try {
+            $tramite = new Tramite();
+            $tramite = $tramite->findById($id);
+            return view('public.ver_tramite', ['tramite' => $tramite]);
+        } catch (\Exception $e) {
+            return [$e->getMessage()];  // Devolver a vista de error con un mensaje.
+        }
+    }
 }

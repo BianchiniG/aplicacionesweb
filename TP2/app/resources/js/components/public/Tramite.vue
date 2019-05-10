@@ -6,7 +6,12 @@
                     <div class="card-header">desde el public</div>
 
                     <div class="card-body">
-                        <p>Yo soy un tramite</p>
+                        <p>Yo soy el tramite {{ datostramite.id }}</p>
+                        <p>Mis componentes son: </p>
+                        <div class="row" v-for="componente in datostramite.componentes" :key="componente.id">
+                            {{ componente.id }}:
+                            {{ componente }}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -16,8 +21,9 @@
 
 <script>
     export default {
+        props: ['datostramite'],
         mounted() {
-            console.log('Se cargo el tramite.')
+            console.log(this.datostramite)
         }
     }
 </script>

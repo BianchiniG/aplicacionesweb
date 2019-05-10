@@ -17,7 +17,7 @@
                                 <div class="card">
                                     <div class="card-body text-center mt-4">
                                         <h4 class="card-title">{{ tramite.titulo }}</h4>
-                                        <button class="btn btn-primary btn-block text-uppercase">Ver Tramite</button>
+                                        <button class="btn btn-primary btn-block text-uppercase"><a :href="'/ver_tramite/' + tramite.id">Ver Tramite</a></button>
                                     </div>
                                 </div>
                             </div>
