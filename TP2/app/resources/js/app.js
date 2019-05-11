@@ -24,6 +24,8 @@ Vue.component('example-component', require('./components/public/ExampleComponent
 Vue.component('hola', require('./components/public/Hola.vue').default);
 Vue.component('tramite', require('./components/public/Tramite.vue').default);
 Vue.component('tramites', require('./components/public/Tramites.vue').default);
+Vue.component('texto', require('./components/public/Texto.vue').default);
+Vue.component('lista', require('./components/public/Lista.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

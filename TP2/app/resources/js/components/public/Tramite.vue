@@ -1,20 +1,17 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">desde el public</div>
+        <h5 class="section-title h1">{{ datostramite.titulo }}</h5>
+        <p>{{ datostramite.descripcion }}</p>
+        <div v-for="componente in datostramite.componentes" :key="componente.id">
+            <div v-if="componente.nombre == 'texto'">
+                <texto :datos="componente"></texto>
+            </div>
+            <div v-else-if="componente.nombre == 'lista'">
 
-                    <div class="card-body">
-                        <p>Yo soy el tramite {{ datostramite.id }}</p>
-                        <p>Mis componentes son: </p>
-                        <div class="row" v-for="componente in datostramite.componentes" :key="componente.id">
-                            {{ componente.id }}:
-                            {{ componente }}
-                            <hola :datos="componente"></hola>
-                        </div>
-                    </div>
-                </div>
+                <lista :datos="componente"></lista>
+            </div>
+            <div v-else>
+                <p>No Existe el componente :(</p>
             </div>
         </div>
     </div>
