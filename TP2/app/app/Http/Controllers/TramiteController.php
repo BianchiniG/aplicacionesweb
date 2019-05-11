@@ -31,7 +31,7 @@ class TramiteController extends Controller
 
     /**
      * Actualiza los componentes de un tramite.
-     * 
+     *
      * @param Request $request
      * @return App\Tramite $tramite
      */
@@ -75,7 +75,7 @@ class TramiteController extends Controller
 
     /**
      * Devuelve la vista de creacion de tramites.
-     * 
+     *
      * @param Request $request
      * @return view
      */
@@ -85,7 +85,7 @@ class TramiteController extends Controller
 
     /**
      * Devuelve la vista de listado de tramites.
-     * 
+     *
      * @param Request $request
      * @return view
      */
@@ -95,17 +95,23 @@ class TramiteController extends Controller
 
     /**
      * Devuelve la vista de edicion de un tramite.
-     * 
+     *
      * @param integer $id
      * @return view
      */
-    public function editarTramiteView(Request $request) {
-        return view('admin.editar_tramite');
+    public function editarTramiteView($id) {
+        try {
+            $tramite = new Tramite();
+            $tramite = $tramite->findById($id);
+            return view('admin.editar_tramite', ['tramite' => $tramite]);
+        } catch (\Exception $e) {
+            return [$e->getMessage()];  // Devolver a vista de error con un mensaje.
+        }
     }
 
     /**
      * Devuelve la vista de ver un tramite.
-     * 
+     *
      * @param integer $id
      * @return view
      */

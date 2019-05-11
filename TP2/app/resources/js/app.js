@@ -20,8 +20,6 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/public/ExampleComponent.vue').default);
-Vue.component('hola', require('./components/public/Hola.vue').default);
 Vue.component('tramite', require('./components/public/Tramite.vue').default);
 Vue.component('tramites', require('./components/public/Tramites.vue').default);
 Vue.component('texto', require('./components/public/Texto.vue').default);
