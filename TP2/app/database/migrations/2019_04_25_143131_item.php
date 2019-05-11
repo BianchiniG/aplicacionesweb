@@ -15,6 +15,7 @@ class Item extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nombre')->default('item');
             $table->text('contenido');
             $table->integer('id_lista')->unsigned();
 

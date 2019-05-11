@@ -1785,6 +1785,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['datos'],
   mounted: function mounted() {
@@ -1818,6 +1826,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['datos'],
   mounted: function mounted() {
@@ -1836,11 +1846,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
 //
 //
 //
@@ -1943,6 +1948,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -1963,9 +1970,9 @@ __webpack_require__.r(__webpack_exports__);
       window.location = '/admin/editar_tramite/' + id;
     },
     borrarTramite: function borrarTramite(id) {
-      alert("Borrando tramite " + id + "!");
       axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]('/admin/tramite/' + id).then(function (res) {
         console.log(res.data.tramites);
+        window.location = '/admin/lista_tramites/';
       });
     }
   }
@@ -37262,10 +37269,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container" },
-    [
+  return _c("div", [
+    _c("div", { staticClass: "form-group" }, [
       _c("h5", { staticClass: "section-title h3" }, [_vm._v("Subtitulo")]),
       _vm._v(" "),
       _c("div", { staticClass: "col-md-8" }, [
@@ -37275,10 +37280,13 @@ var render = function() {
             id: "id_titulo_lista",
             type: "text",
             placeholder: _vm.datos.titulo
-          }
+          },
+          domProps: { value: _vm.datos.titulo }
         })
-      ]),
-      _vm._v(" "),
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
       _c("h5", { staticClass: "section-title h3" }, [_vm._v("Descripcion")]),
       _vm._v(" "),
       _c("div", { staticClass: "col-md-8" }, [
@@ -37288,41 +37296,51 @@ var render = function() {
             id: "id_titulo_lista",
             type: "text",
             placeholder: _vm.datos.descripcion
-          }
+          },
+          domProps: { value: _vm.datos.descripcion }
         })
-      ]),
-      _vm._v(" "),
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
       _c("h5", { staticClass: "section-title h3" }, [_vm._v("Items")]),
       _vm._v(" "),
-      _vm._l(_vm.datos.items, function(item) {
-        return _c("div", { key: item.id }, [
-          _c("ul", [
-            _c("li", [
-              _c("input", {
-                staticClass: "form-control",
-                attrs: { type: "text", placeholder: item.contenido }
-              }),
-              _vm._v(" "),
-              _c(
-                "button",
-                { staticClass: "btn btn-danger", attrs: { type: "button" } },
-                [_vm._v("Borrar")]
-              )
-            ])
+      _c(
+        "ul",
+        _vm._l(_vm.datos.items, function(item) {
+          return _c("div", { key: item.id, staticClass: "row" }, [
+            _c("div", { staticClass: "col-md 4" }, [
+              _c("li", [
+                _c("input", {
+                  staticClass: "form-control",
+                  attrs: { type: "text", placeholder: item.contenido },
+                  domProps: { value: item.contenido }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(0, true)
           ])
-        ])
-      }),
-      _vm._v(" "),
+        }),
+        0
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md 2" }, [
       _c(
         "button",
-        { staticClass: "btn btn-primary btn-block text-uppercase" },
-        [_vm._v("Guardar")]
+        { staticClass: "btn btn-danger", attrs: { type: "button" } },
+        [_vm._v("Borrar")]
       )
-    ],
-    2
-  )
-}
-var staticRenderFns = []
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -37344,7 +37362,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", [
     _c("div", { staticClass: "form-group" }, [
       _c("h5", { staticClass: "section-title h3" }, [_vm._v("Subtitulo")]),
       _vm._v(" "),
@@ -37355,10 +37373,13 @@ var render = function() {
             id: "id_subtitulo_texto",
             type: "text",
             placeholder: _vm.datos.titulo
-          }
+          },
+          domProps: { value: _vm.datos.titulo }
         })
-      ]),
-      _vm._v(" "),
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
       _c("h5", { staticClass: "section-title h3" }, [_vm._v("Descripcion")]),
       _vm._v(" "),
       _c("div", { staticClass: "col-md-8" }, [
@@ -37368,7 +37389,8 @@ var render = function() {
             id: "id_descripcion_texto",
             type: "text",
             placeholder: _vm.tramite.descripcion
-          }
+          },
+          domProps: { value: _vm.tramite.descripcion }
         })
       ])
     ])
@@ -37413,6 +37435,24 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c("h5", { staticClass: "section-title h3" }, [
+                      _vm._v("Icono")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-8" }, [
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: {
+                          id: "id_icono_tramite",
+                          type: "text",
+                          placeholder: _vm.datostramite.icono
+                        },
+                        domProps: { value: _vm.datostramite.icono }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("h5", { staticClass: "section-title h3" }, [
                       _vm._v("Titulo")
                     ]),
                     _vm._v(" "),
@@ -37423,10 +37463,13 @@ var render = function() {
                           id: "id_titulo_tramite",
                           type: "text",
                           placeholder: _vm.datostramite.titulo
-                        }
+                        },
+                        domProps: { value: _vm.datostramite.titulo }
                       })
-                    ]),
-                    _vm._v(" "),
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
                     _c("h5", { staticClass: "section-title h3" }, [
                       _vm._v("Descripcion")
                     ]),
@@ -37438,7 +37481,8 @@ var render = function() {
                           id: "id_descripcion_tramite",
                           type: "text",
                           placeholder: _vm.datostramite.descripcion
-                        }
+                        },
+                        domProps: { value: _vm.datostramite.descripcion }
                       })
                     ])
                   ]),
@@ -37461,7 +37505,9 @@ var render = function() {
                             _c("p", [_vm._v("No Existe el componente :(")])
                           ])
                     ])
-                  })
+                  }),
+                  _vm._v(" "),
+                  _vm._m(0)
                 ],
                 2
               )
@@ -37472,7 +37518,23 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success btn-block text-uppercase",
+          staticStyle: { width: "300px" }
+        },
+        [_vm._v("Guardar")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -37518,7 +37580,12 @@ var render = function() {
                         _vm._v(" "),
                         _c("p", { staticClass: "card-text" }, [
                           _vm._v(_vm._s(tramite.descripcion))
-                        ])
+                        ]),
+                        _vm._v(" "),
+                        _c("h3", {
+                          staticClass: "fa fa-4x",
+                          class: tramite.icono
+                        })
                       ])
                     ])
                   ]),
@@ -37528,6 +37595,10 @@ var render = function() {
                       _c("div", { staticClass: "card-body text-center mt-4" }, [
                         _c("h4", { staticClass: "card-title" }, [
                           _vm._v(_vm._s(tramite.titulo))
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "card-text" }, [
+                          _vm._v(_vm._s(tramite.descripcion))
                         ]),
                         _vm._v(" "),
                         _c(
@@ -50095,7 +50166,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/maxi/Documentos/Maxi/aplicacionesweb/TP2/app/resources/js/admin.js */"./resources/js/admin.js");
+module.exports = __webpack_require__(/*! /var/www/html/resources/js/admin.js */"./resources/js/admin.js");
 
 
 /***/ })

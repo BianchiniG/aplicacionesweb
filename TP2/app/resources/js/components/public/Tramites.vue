@@ -10,6 +10,7 @@
                                     <div class="card-body text-center">
                                         <h4 class="card-title">{{ tramite.titulo }}</h4>
                                         <p class="card-text">{{ tramite.descripcion }}</p>
+                                        <h3 class="fa fa-4x" :class="tramite.icono"></h3>
                                     </div>
                                 </div>
                             </div>
@@ -17,7 +18,9 @@
                                 <div class="card">
                                     <div class="card-body text-center mt-4">
                                         <h4 class="card-title">{{ tramite.titulo }}</h4>
+                                        <p class="card-text">{{ tramite.descripcion }}</p>
                                         <button class="btn btn-primary btn-block text-uppercase"><a :href="'/ver_tramite/' + tramite.id">Ver Tramite</a></button>
+                                        <br>
                                     </div>
                                 </div>
                             </div>

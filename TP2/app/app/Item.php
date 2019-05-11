@@ -27,6 +27,4 @@ class Item extends Model
     public function getItemById($id) {
         return Item::find($id);
     }
-
-    
 }

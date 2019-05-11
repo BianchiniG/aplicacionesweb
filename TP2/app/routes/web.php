@@ -38,9 +38,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin'], function() {
     
     Route::get('/tramites', 'TramiteController@all');
     Route::get('/tramite/{id}', 'TramiteController@getTramite');
-    Route::post('/tramite/new', 'TramiteController@create');
-    Route::post('/tramite/update', 'TramiteController@update');
-    Route::delete('/tramite/{id}', 'TramiteController@delete');
+    Route::post('/tramite/new', 'TramiteController@createTramite');  // TODO
+    Route::post('/tramite/update', 'TramiteController@updateTramite');
+    Route::delete('/tramite/{id}', 'TramiteController@deleteTramite');
 
     Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 });

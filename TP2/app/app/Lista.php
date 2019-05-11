@@ -25,4 +25,24 @@ class Lista extends Model
         return $this->hasMany('App\Item','id_lista','id');
     }
 
+    /**
+     * Borra el componente.
+     * 
+     * @return boolean $borrado
+     */
+    public function removeComponent() {
+        echo "Entre a borrar una lista\n";
+        try {
+            foreach ($this->items as $item) {
+                echo "Recorriendo los items\n";
+                $item->delete();
+            }
+            $this->delete();
+
+            return true;
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
 }

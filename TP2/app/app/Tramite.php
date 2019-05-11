@@ -80,12 +80,49 @@ class Tramite extends Model
     }
 
     /**
-     * Actualiza los componentes de un tramite.
-     * 
+     * Actualiza un tramite por completo (Tanto sus datos como los de sus detalles).
+     * ,
      * @param array $datos
      * @return boolean $actualizados
      */
-    public function updateComponents($datos) {
-        
+    public function updateComplete($datos) {
+        try {
+            // Recorrer los borrados.
+            foreach ($datos['componentes_borrados'] as $componente) {
+                $componente->removeComponent();
+            }
+
+            // Recorrer el resto.
+            foreach ($datos['componentes_actualizados'] as $componente) {
+                // $componente->update
+            }
+
+            // Actualizar datos basicos.
+            $this->titulo = $datos['titulo'];
+            $this->descripcion = $datos['descripcion'];
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    /**
+     * Borra un tramite y sus componentes.
+     * 
+     * @return boolean $borrado
+     */
+    public function removeTramite() {
+        try {
+            foreach ($this->componentes as $componente) {
+                echo get_class($componente);
+                $componente->removeComponent();
+            }
+            $this->delete();
+            
+            return "true";
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            return "false";
+        }
     }
 }

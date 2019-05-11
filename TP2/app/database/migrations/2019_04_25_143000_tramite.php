@@ -15,6 +15,7 @@ class Tramite extends Migration
     {
         Schema::create('tramites', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('icono')->default('fa-list');
             $table->string('titulo');
             $table->text('descripcion');
         });

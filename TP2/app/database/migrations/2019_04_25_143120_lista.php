@@ -15,6 +15,7 @@ class Lista extends Migration
     {
         Schema::create('listas', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nombre')->default('lista');
             $table->string('titulo');
             $table->text('descripcion');
             $table->integer('orden');

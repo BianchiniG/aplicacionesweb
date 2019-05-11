@@ -1888,6 +1888,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -37340,7 +37343,12 @@ var render = function() {
                         _vm._v(" "),
                         _c("p", { staticClass: "card-text" }, [
                           _vm._v(_vm._s(tramite.descripcion))
-                        ])
+                        ]),
+                        _vm._v(" "),
+                        _c("h3", {
+                          staticClass: "fa fa-4x",
+                          class: tramite.icono
+                        })
                       ])
                     ])
                   ]),
@@ -37350,6 +37358,10 @@ var render = function() {
                       _c("div", { staticClass: "card-body text-center mt-4" }, [
                         _c("h4", { staticClass: "card-title" }, [
                           _vm._v(_vm._s(tramite.titulo))
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "card-text" }, [
+                          _vm._v(_vm._s(tramite.descripcion))
                         ]),
                         _vm._v(" "),
                         _c(
@@ -37365,7 +37377,9 @@ var render = function() {
                               [_vm._v("Ver Tramite")]
                             )
                           ]
-                        )
+                        ),
+                        _vm._v(" "),
+                        _c("br")
                       ])
                     ])
                   ])
@@ -49926,9 +49940,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/maxi/Documentos/Maxi/aplicacionesweb/TP2/app/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/maxi/Documentos/Maxi/aplicacionesweb/TP2/app/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/maxi/Documentos/Maxi/aplicacionesweb/TP2/app/resources/sass/admin.scss */"./resources/sass/admin.scss");
+__webpack_require__(/*! /var/www/html/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /var/www/html/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /var/www/html/resources/sass/admin.scss */"./resources/sass/admin.scss");
 
 
 /***/ })

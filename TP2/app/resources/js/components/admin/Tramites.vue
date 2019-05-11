@@ -10,6 +10,7 @@
                                     <div class="card-body text-center">
                                         <h4 class="card-title">{{ tramite.titulo }}</h4>
                                         <p class="card-text">{{ tramite.descripcion }}</p>
+                                        <h3 class="fa fa-4x" :class="tramite.icono"></h3>
                                     </div>
                                 </div>
                             </div>
@@ -17,6 +18,7 @@
                                 <div class="card">
                                     <div class="card-body text-center mt-4">
                                         <h4 class="card-title">{{ tramite.titulo }}</h4>
+                                        <p class="card-text">{{ tramite.descripcion }}</p>
                                         <button class="btn btn-primary btn-block text-uppercase" v-on:click="editarTramite(tramite.id)">Editar</button>
                                         <button class="btn btn-danger btn-block text-uppercase" v-on:click="borrarTramite(tramite.id)">Borrar</button>
                                     </div>
@@ -51,9 +53,9 @@
                 window.location = '/admin/editar_tramite/'+id;
             },
             borrarTramite: function (id) {
-                alert("Borrando tramite " + id + "!")
                 axios.delete('/admin/tramite/'+id).then((res) => {
                     console.log(res.data.tramites);
+                    window.location = '/admin/lista_tramites/';
                 })
             }
         }
