@@ -24,6 +24,8 @@ Vue.component('tramite', require('./components/admin/Tramite.vue').default);
 Vue.component('tramites', require('./components/admin/Tramites.vue').default);
 Vue.component('texto', require('./components/admin/Texto.vue').default);
 Vue.component('lista', require('./components/admin/Lista.vue').default);
+Vue.component('hipervinculo', require('./components/admin/Hipervinculo.vue').default);
+Vue.component('adjunto', require('./components/admin/Adjunto.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

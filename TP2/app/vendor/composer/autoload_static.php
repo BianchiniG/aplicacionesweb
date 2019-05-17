@@ -360,8 +360,10 @@ class ComposerStaticInitf949b72f7ffac5993a475d14aba1f0d1
     );
 
     public static $classMap = array (
+        'App\\Adjunto' => __DIR__ . '/../..' . '/app/Adjunto.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Hipervinculo' => __DIR__ . '/../..' . '/app/Hipervinculo.php',
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -369,10 +371,10 @@ class ComposerStaticInitf949b72f7ffac5993a475d14aba1f0d1
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\HipervinculoController' => __DIR__ . '/../..' . '/app/Http/Controllers/HipervinculoController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\ItemController' => __DIR__ . '/../..' . '/app/Http/Controllers/ItemController.php',
         'App\\Http\\Controllers\\ListaController' => __DIR__ . '/../..' . '/app/Http/Controllers/ListaController.php',
-        'App\\Http\\Controllers\\SubtituloController' => __DIR__ . '/../..' . '/app/Http/Controllers/SubtituloController.php',
         'App\\Http\\Controllers\\TextoController' => __DIR__ . '/../..' . '/app/Http/Controllers/TextoController.php',
         'App\\Http\\Controllers\\TramiteController' => __DIR__ . '/../..' . '/app/Http/Controllers/TramiteController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -390,7 +392,6 @@ class ComposerStaticInitf949b72f7ffac5993a475d14aba1f0d1
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-        'App\\Subtitulo' => __DIR__ . '/../..' . '/app/Subtitulo.php',
         'App\\Texto' => __DIR__ . '/../..' . '/app/Texto.php',
         'App\\Tramite' => __DIR__ . '/../..' . '/app/Tramite.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
@@ -3192,7 +3193,6 @@ class ComposerStaticInitf949b72f7ffac5993a475d14aba1f0d1
         'SebastianBergmann\\Timer\\RuntimeException' => __DIR__ . '/..' . '/phpunit/php-timer/src/RuntimeException.php',
         'SebastianBergmann\\Timer\\Timer' => __DIR__ . '/..' . '/phpunit/php-timer/src/Timer.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
-        'SubtituloTableSeeder' => __DIR__ . '/../..' . '/database/seeds/SubtituloTableSeeder.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => __DIR__ . '/..' . '/symfony/console/CommandLoader/CommandLoaderInterface.php',
         'Symfony\\Component\\Console\\CommandLoader\\ContainerCommandLoader' => __DIR__ . '/..' . '/symfony/console/CommandLoader/ContainerCommandLoader.php',

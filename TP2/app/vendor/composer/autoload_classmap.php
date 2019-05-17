@@ -6,8 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Adjunto' => $baseDir . '/app/Adjunto.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Hipervinculo' => $baseDir . '/app/Hipervinculo.php',
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
@@ -15,10 +17,10 @@ return array(
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\HipervinculoController' => $baseDir . '/app/Http/Controllers/HipervinculoController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\ItemController' => $baseDir . '/app/Http/Controllers/ItemController.php',
     'App\\Http\\Controllers\\ListaController' => $baseDir . '/app/Http/Controllers/ListaController.php',
-    'App\\Http\\Controllers\\SubtituloController' => $baseDir . '/app/Http/Controllers/SubtituloController.php',
     'App\\Http\\Controllers\\TextoController' => $baseDir . '/app/Http/Controllers/TextoController.php',
     'App\\Http\\Controllers\\TramiteController' => $baseDir . '/app/Http/Controllers/TramiteController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
@@ -36,7 +38,6 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
-    'App\\Subtitulo' => $baseDir . '/app/Subtitulo.php',
     'App\\Texto' => $baseDir . '/app/Texto.php',
     'App\\Tramite' => $baseDir . '/app/Tramite.php',
     'App\\User' => $baseDir . '/app/User.php',
@@ -2838,7 +2839,6 @@ return array(
     'SebastianBergmann\\Timer\\RuntimeException' => $vendorDir . '/phpunit/php-timer/src/RuntimeException.php',
     'SebastianBergmann\\Timer\\Timer' => $vendorDir . '/phpunit/php-timer/src/Timer.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
-    'SubtituloTableSeeder' => $baseDir . '/database/seeds/SubtituloTableSeeder.php',
     'Symfony\\Component\\Console\\Application' => $vendorDir . '/symfony/console/Application.php',
     'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => $vendorDir . '/symfony/console/CommandLoader/CommandLoaderInterface.php',
     'Symfony\\Component\\Console\\CommandLoader\\ContainerCommandLoader' => $vendorDir . '/symfony/console/CommandLoader/ContainerCommandLoader.php',
