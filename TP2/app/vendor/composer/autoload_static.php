@@ -360,10 +360,12 @@ class ComposerStaticInitf949b72f7ffac5993a475d14aba1f0d1
     );
 
     public static $classMap = array (
+        'AdjuntoTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AdjuntoTableSeeder.php',
         'App\\Adjunto' => __DIR__ . '/../..' . '/app/Adjunto.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Hipervinculo' => __DIR__ . '/../..' . '/app/Hipervinculo.php',
+        'App\\Http\\Controllers\\AdjuntoController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdjuntoController.php',
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -1069,6 +1071,7 @@ class ComposerStaticInitf949b72f7ffac5993a475d14aba1f0d1
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+        'HipervinculoTableSeeder' => __DIR__ . '/../..' . '/database/seeds/HipervinculoTableSeeder.php',
         'Illuminate\\Auth\\Access\\AuthorizationException' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/AuthorizationException.php',
         'Illuminate\\Auth\\Access\\Gate' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/Gate.php',
         'Illuminate\\Auth\\Access\\HandlesAuthorization' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/HandlesAuthorization.php',

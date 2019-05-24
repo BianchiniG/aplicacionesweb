@@ -17,7 +17,7 @@ class CreateAdjuntosTable extends Migration
             $table->increments('id');
             $table->string('titulo');
             $table->string('path');
-            $table->string('nombre')->default('hipervinculo');
+            $table->string('nombre')->default('adjunto');
             $table->timestamps();
             $table->integer('id_tramite')->unsigned();
 

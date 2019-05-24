@@ -15,11 +15,12 @@
  * Rutas publicas.
  */
 Route::get('/', 'HomeController@index')->name('public_home');
-
 Route::get('ver_tramite/{id}', 'TramiteController@verTramiteView');
-
 Route::get('/tramites', 'TramiteController@all');
 Route::get('/tramite/{id}', 'TramiteController@getTramite');
+
+Route::get('/download/{file}', 'AdjuntoController@downloadFile');
+
 
 /**
  * Rutas de autentificacion.
@@ -35,7 +36,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin'], function() {
     Route::get('/lista_tramites', 'TramiteController@listaTramitesView');
     Route::get('/nuevo_tramite', 'TramiteController@nuevoTramiteView');
     Route::get('/editar_tramite/{id}', 'TramiteController@editarTramiteView');
-    
+
     Route::get('/tramites', 'TramiteController@all');
     Route::get('/tramite/{id}', 'TramiteController@getTramite');
     Route::post('/tramite/new', 'TramiteController@createTramite');  // TODO

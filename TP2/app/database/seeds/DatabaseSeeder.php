@@ -23,5 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ListaTableSeeder::class);
         $this->call(ItemsTableSeeder::class);
         $this->call(TextoTableSeeder::class);
+        $this->call(HipervinculoTableSeeder::class);
+        $this->call(AdjuntoTableSeeder::class);
     }
 }

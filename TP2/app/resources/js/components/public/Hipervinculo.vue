@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <h6 class="section-title h2">{{ datos.titulo }}</h6>
-        <a :href="datos.url"> {{ datos.titulo }} </a>
+        <li><a :href="datos.url"> {{ datos.titulo }} </a></li>
     </div>
 </template>
 

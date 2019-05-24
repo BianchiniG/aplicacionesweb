@@ -37300,7 +37300,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "form-group" }, [
-      _c("h5", { staticClass: "section-title h3" }, [_vm._v("Hipervinculo")]),
+      _c("h6", { staticClass: "section-title h3" }, [_vm._v("Hipervinculo")]),
       _vm._v(" "),
       _c("div", { staticClass: "col-md-8" }, [
         _c("input", {

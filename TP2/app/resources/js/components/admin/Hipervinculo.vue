@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="form-group">
-            <h5 class="section-title h3">Hipervinculo</h5>
+            <h6 class="section-title h3">Hipervinculo</h6>
             <div class="col-md-8">
                 <input id="id_subtitulo_texto" type="text" :placeholder="datos.url" :value="datos.url" class="form-control">
             </div>

@@ -37,22 +37,40 @@ class Tramite extends Model
     }
 
     /**
+     * Relacion con lso componentes de tipo hipervinculo
+     */
+    public function componentesHipervinculo(){
+        return $this->hasMany('App\Hipervinculo','id_tramite','id');
+    }
+
+    /**
+     * Relacion con lso componentes de tipo adjunto
+     */
+    public function componentesAdjunto(){
+        return $this->hasMany('App\Adjunto','id_tramite','id');
+    }
+
+    /**
      * Atributo que contiene todos los componentes del tramite.
-     * 
+     *
      * @return array $componentes
      */
     public function getComponentesAttribute(){
         $textos = $this->componentesTexto;
         $listas = $this->componentesLista;
+        $hipervinculos = $this->componentesHipervinculo;
+        $adjuntos = $this->componentesAdjunto;
 
-        $componentes = $textos->concat($listas);
+        $aux1 = $textos->concat($listas);
+        $aux2 = $hipervinculos->concat($adjuntos);
+        $componentes = $aux1->concat($aux2);
 
         return $componentes->sortBy('orden');
     }
 
     /**
      * Devuelve todos los tramites.
-     * 
+     *
      * @return array $tramites
      */
     public function findAll() {
@@ -61,7 +79,7 @@ class Tramite extends Model
 
     /**
      * Dado un id, devuelve un tramite.
-     * 
+     *
      * @param integer $id
      * @return App\Tramite
      */
@@ -71,7 +89,7 @@ class Tramite extends Model
 
     /**
      * Metodo de creacion de un tramite nuevo
-     * 
+     *
      * @param array $datos
      * @return App\Tramite
      */
@@ -108,7 +126,7 @@ class Tramite extends Model
 
     /**
      * Borra un tramite y sus componentes.
-     * 
+     *
      * @return boolean $borrado
      */
     public function removeTramite() {
@@ -118,7 +136,7 @@ class Tramite extends Model
                 $componente->removeComponent();
             }
             $this->delete();
-            
+
             return "true";
         } catch (\Exception $e) {
             echo $e->getMessage();
