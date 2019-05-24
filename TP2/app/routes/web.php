@@ -19,7 +19,7 @@ Route::get('ver_tramite/{id}', 'TramiteController@verTramiteView');
 Route::get('/tramites', 'TramiteController@all');
 Route::get('/tramite/{id}', 'TramiteController@getTramite');
 
-Route::get('/download/{file}', 'AdjuntoController@downloadFile');
+Route::get('/download/{id_tramite}/{file}', 'AdjuntoController@downloadFile');
 
 
 /**

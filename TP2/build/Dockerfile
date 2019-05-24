@@ -1,9 +1,6 @@
 # Version: 1.0
 FROM php:7.3-apache
 
-# Pisamos el virtualhost con el nuestro.
-ADD 000-default.conf /etc/apache2/sites-enabled
-
 # Instalar algunos programas para el contenedor.
 RUN apt-get update && apt install -y curl git wget vim unzip
 
@@ -39,6 +36,14 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
     php composer-setup.php && \
     php -r "unlink('composer-setup.php');" && \
     mv composer.phar /usr/local/bin/composer
+
+# Instalar Node.js
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN apt-get install -y nodejs
+RUN npm install
+
+# Pisamos el virtualhost con el nuestro.
+ADD 000-default.conf /etc/apache2/sites-enabled
 
 # Habilitar el motor de reescritura de URLs de apache
 RUN a2enmod rewrite

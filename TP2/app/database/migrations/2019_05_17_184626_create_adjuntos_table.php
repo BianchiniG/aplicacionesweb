@@ -16,7 +16,7 @@ class CreateAdjuntosTable extends Migration
         Schema::create('adjuntos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('titulo');
-            $table->string('path');
+            $table->string('nombre_archivo');
             $table->string('nombre')->default('adjunto');
             $table->timestamps();
             $table->integer('id_tramite')->unsigned();

@@ -14,7 +14,7 @@ class AdjuntoTableSeeder extends Seeder
     {
         Adjunto::create(array(
             'titulo' => 'Adjunto',
-            'path' => 'Archivo.pdf',
+            'nombre_archivo' => 'Archivo.pdf',
             'id_tramite' => 1
         ));
     }

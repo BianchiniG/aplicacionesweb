@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Adjunto;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Tramite extends Model
@@ -142,5 +144,16 @@ class Tramite extends Model
             echo $e->getMessage();
             return "false";
         }
+    }
+
+    /**
+     * Recibe el nombre de un adjunto que pertenece a este tramite y devuelve el path de descarga.
+     * 
+     * @param string $nombre
+     * @return string $path
+     */
+    public function getFilePath($nombre) {
+        $adjunto = Adjunto::where('nombre_archivo', $nombre)->where('id_tramite', $this->id)->first();
+        return config('app.files_directory').$this->id."/".$adjunto->nombre_archivo;
     }
 }

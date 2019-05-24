@@ -1770,10 +1770,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['datos'],
   mounted: function mounted() {
     console.log(this.datos);
+  },
+  methods: {
+    download: function download(id_tramite, nombre_archivo) {
+      window.location = '/download/' + id_tramite + '/' + nombre_archivo; // console.log(id_tramite);
+      // console.log(nombre_archivo);
+      // $.ajax({
+      //     dataType: "json",
+      //     url: '/download/'+id_tramite+'/'+nombre_archivo,
+      //     success: function(data) {
+      //         console.log(data)
+      //     },
+      //     error: function(jqXHR, exception) {
+      //         var msg = '';
+      //         if (jqXHR.status === 0) {
+      //             msg = 'No estas conectado/a. Verifica la conexion.';
+      //         } else if (jqXHR.status == 404) {
+      //             msg = 'Pagina no encontrada. [404]';
+      //         } else if (jqXHR.status == 500) {
+      //             msg = 'Error interno del servidor [500].';
+      //         } else if (exception === 'parsererror') {
+      //             msg = 'Error de parsing.';
+      //         } else if (exception === 'timeout') {
+      //             msg = 'Tiempo de espera agotado.';
+      //         } else if (exception === 'abort') {
+      //             msg = 'Se aborto la llamada Ajax.';
+      //         } else {
+      //             msg = 'Error no identificado: ' + jqXHR.responseText;
+      //         }
+      //         console.log(jqXHR);
+      //     },
+      // });
+    }
   }
 });
 
@@ -37261,7 +37294,20 @@ var render = function() {
     _vm._v(" "),
     _c("a", { staticClass: "btn btn-success", attrs: { href: "/download" } }, [
       _vm._v(" Download ")
-    ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-success",
+        on: {
+          click: function($event) {
+            return _vm.download(_vm.datos.id_tramite, _vm.datos.nombre_archivo)
+          }
+        }
+      },
+      [_vm._v(" Download ")]
+    )
   ])
 }
 var staticRenderFns = []
@@ -50209,9 +50255,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/maxi/Documentos/Maxi/aplicacionesweb/TP2/app/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/maxi/Documentos/Maxi/aplicacionesweb/TP2/app/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/maxi/Documentos/Maxi/aplicacionesweb/TP2/app/resources/sass/admin.scss */"./resources/sass/admin.scss");
+__webpack_require__(/*! /var/www/html/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /var/www/html/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /var/www/html/resources/sass/admin.scss */"./resources/sass/admin.scss");
 
 
 /***/ })

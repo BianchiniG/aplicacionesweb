@@ -10,7 +10,7 @@ class Adjunto extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'titulo',
-        'path'
+        'nombre_archivo'
     ];
     public $timestamps = false;
 
