@@ -25,15 +25,22 @@
                                 </div>
                             </div>
                             <div v-for="componente in datostramite.componentes" :key="componente.id">
-                                <div v-if="componente.nombre == 'texto'">
-                                    <texto :datos="componente"></texto>
-                                </div>
-                                <div v-else-if="componente.nombre == 'lista'">
-
-                                    <lista :datos="componente"></lista>
-                                </div>
-                                <div v-else>
-                                    <p>No Existe el componente :(</p>
+                                <div v-switch="componente.nombre">
+                                    <div v-case="texto">
+                                        <editar-texto :datos="componente"></editar-texto>
+                                    </div>
+                                    <div v-case="lista">
+                                        <editar-lista :datos="componente"></editar-lista>
+                                    </div>
+                                    <div v-case="adjunto">
+                                        <editar-adjunto></editar-adjunto>
+                                    </div>
+                                    <div v-case="hipervinculo">
+                                        <editar-hipervinculo></editar-hipervinculo>
+                                    </div>
+                                    <div v-default>
+                                        <p>No Existe el componente :(</p>
+                                    </div>
                                 </div>
                             </div>
 

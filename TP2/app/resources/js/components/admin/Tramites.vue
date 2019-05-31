@@ -36,12 +36,9 @@
     import axios from 'axios'
     export default {
         mounted() {
-            console.log('Se cargaron los tramites.')
-
             axios.get('/admin/tramites').then((res) => {
                 this.$set(this.$data, 'tramites', res.data.tramites)
             })
-
         },
         data() {
             return {
@@ -54,7 +51,6 @@
             },
             borrarTramite: function (id) {
                 axios.delete('/admin/tramite/'+id).then((res) => {
-                    console.log(res.data.tramites);
                     window.location = '/admin/lista_tramites/';
                 })
             }

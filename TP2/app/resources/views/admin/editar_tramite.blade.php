@@ -11,6 +11,6 @@
 
 @section('contenido')
     <div id="admin">
-        <tramite :datostramite="{{ json_encode($tramite) }}"></tramite>
+        <editar-tramite :datostramite="{{ json_encode($tramite) }}"></editar-tramite>
     </div>
 @endsection

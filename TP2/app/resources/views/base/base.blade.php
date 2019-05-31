@@ -12,12 +12,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
     <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/templatemo-style.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('css/templatemo-style.css') }}"> -->
 </head>
-<body id="reportsPage">
-    <div class="" id="home">
+<body>
+    <div id="home">
         @yield('barra_navegacion')
-
+        <br>
         <div class="container">
             @yield('contenido')
         </div>

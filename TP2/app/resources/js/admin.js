@@ -4,6 +4,9 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+// import all icons if you don't care about bundle size
+import 'vue-awesome/icons';
+import Icon from 'vue-awesome/components/Icon';
 
 require('./bootstrap');
 
@@ -19,13 +22,21 @@ window.Vue = require('vue');
 
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+Vue.component('icon', Icon);
 
-Vue.component('tramite', require('./components/admin/Tramite.vue').default);
 Vue.component('tramites', require('./components/admin/Tramites.vue').default);
-Vue.component('texto', require('./components/admin/Texto.vue').default);
-Vue.component('lista', require('./components/admin/Lista.vue').default);
-Vue.component('hipervinculo', require('./components/admin/Hipervinculo.vue').default);
-Vue.component('adjunto', require('./components/admin/Adjunto.vue').default);
+
+Vue.component('nuevo-tramite', require('./components/admin/NewTramite/NewTramite.vue').default);
+Vue.component('nuevo-texto', require('./components/admin/NewTramite/Texto.vue').default);
+Vue.component('nuevo-lista', require('./components/admin/NewTramite/Lista.vue').default);
+Vue.component('nuevo-hipervinculo', require('./components/admin/NewTramite/Hipervinculo.vue').default);
+Vue.component('nuevo-adjunto', require('./components/admin/NewTramite/Adjunto.vue').default);
+
+Vue.component('editar-tramite', require('./components/admin/EditTramite/EditTramite.vue').default);
+Vue.component('editar-texto', require('./components/admin/EditTramite/Texto.vue').default);
+Vue.component('editar-lista', require('./components/admin/EditTramite/Lista.vue').default);
+Vue.component('editar-hipervinculo', require('./components/admin/EditTramite/Hipervinculo.vue').default);
+Vue.component('editar-adjunto', require('./components/admin/EditTramite/Adjunto.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
