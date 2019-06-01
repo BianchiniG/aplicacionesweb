@@ -36,8 +36,6 @@
     import axios from 'axios'
     export default {
         mounted() {
-            console.log('Se cargaron los tramites.')
-
             axios.get('/tramites').then((res) => {
                 this.$set(this.$data, 'tramites', res.data.tramites)
             })
@@ -45,7 +43,7 @@
         },
         data() {
             return {
-                tramites:[1,2,3]
+                tramites:[]
             }
         }
     }

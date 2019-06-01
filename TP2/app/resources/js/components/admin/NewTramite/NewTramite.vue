@@ -43,15 +43,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div id="componentes" class="card-body">
-                        <nuevo-texto></nuevo-texto>
-                        <br>
-                        <nuevo-lista></nuevo-lista>
-                        <br>
-                        <nuevo-hipervinculo></nuevo-hipervinculo>
-                        <br>
-                        <nuevo-adjunto></nuevo-adjunto>
-                        <br>
+                    <div ref="componentes" class="card-body">
                     </div>
                 </div>
             </div>
@@ -60,14 +52,42 @@
 </template>
 
 <script>
+    import Vue from 'vue';
+    import Texto from './Texto.vue';
+    import Lista from './Lista.vue';
+    import Hipervinculo from './Hipervinculo.vue';
+    import Adjunto from './Adjunto.vue';
+
     export default {
-        mounted() {
-            console.log(this.datostramite)
-        },
+        name: 'app',
+        components: { Texto, Lista, Hipervinculo, Adjunto },
         methods: {
             nuevo_componente: function() {
                 var componente_seleccionado = $("#seleccion-componentes :selected").val();
-                // $('#componentes').append("<nuevo-"+componente_seleccionado+"></nuevo-"+componente_seleccionado+">");
+                var ComponentClass = undefined;
+
+                switch (componente_seleccionado) {
+                    case 'texto':
+                        ComponentClass = Vue.extend(Texto);
+                        break;
+                    case 'lista':
+                        ComponentClass = Vue.extend(Lista);
+                        break;
+                    case 'hipervinculo':
+                        ComponentClass = Vue.extend(Hipervinculo);
+                        break;
+                    case 'adjunto':
+                        ComponentClass = Vue.extend(Adjunto);
+                        break;
+                }
+
+                if (ComponentClass) {
+                    var instancia = new ComponentClass();
+                    instancia.$mount();
+                    this.$refs.componentes.appendChild(instancia.$el);
+                } else {
+                    console.log("No existe el componente "+componente_seleccionado);
+                }
             }
         }
     }

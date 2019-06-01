@@ -17,4 +17,7 @@
 </template>
 
 <script>
+    export default {
+        name: 'Texto'
+    }
 </script>
