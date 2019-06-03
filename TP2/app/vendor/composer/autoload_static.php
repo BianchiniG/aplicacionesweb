@@ -362,6 +362,7 @@ class ComposerStaticInitf949b72f7ffac5993a475d14aba1f0d1
     public static $classMap = array (
         'AdjuntoTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AdjuntoTableSeeder.php',
         'App\\Adjunto' => __DIR__ . '/../..' . '/app/Adjunto.php',
+        'App\\ArchivoAdjunto' => __DIR__ . '/../..' . '/app/ArchivoAdjunto.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Hipervinculo' => __DIR__ . '/../..' . '/app/Hipervinculo.php',
@@ -376,6 +377,7 @@ class ComposerStaticInitf949b72f7ffac5993a475d14aba1f0d1
         'App\\Http\\Controllers\\HipervinculoController' => __DIR__ . '/../..' . '/app/Http/Controllers/HipervinculoController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\ItemController' => __DIR__ . '/../..' . '/app/Http/Controllers/ItemController.php',
+        'App\\Http\\Controllers\\LinkController' => __DIR__ . '/../..' . '/app/Http/Controllers/LinkController.php',
         'App\\Http\\Controllers\\ListaController' => __DIR__ . '/../..' . '/app/Http/Controllers/ListaController.php',
         'App\\Http\\Controllers\\TextoController' => __DIR__ . '/../..' . '/app/Http/Controllers/TextoController.php',
         'App\\Http\\Controllers\\TramiteController' => __DIR__ . '/../..' . '/app/Http/Controllers/TramiteController.php',
@@ -388,6 +390,7 @@ class ComposerStaticInitf949b72f7ffac5993a475d14aba1f0d1
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Item' => __DIR__ . '/../..' . '/app/Item.php',
+        'App\\Link' => __DIR__ . '/../..' . '/app/Link.php',
         'App\\Lista' => __DIR__ . '/../..' . '/app/Lista.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

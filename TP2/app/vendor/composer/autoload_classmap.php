@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'AdjuntoTableSeeder' => $baseDir . '/database/seeds/AdjuntoTableSeeder.php',
     'App\\Adjunto' => $baseDir . '/app/Adjunto.php',
+    'App\\ArchivoAdjunto' => $baseDir . '/app/ArchivoAdjunto.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Hipervinculo' => $baseDir . '/app/Hipervinculo.php',
@@ -22,6 +23,7 @@ return array(
     'App\\Http\\Controllers\\HipervinculoController' => $baseDir . '/app/Http/Controllers/HipervinculoController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\ItemController' => $baseDir . '/app/Http/Controllers/ItemController.php',
+    'App\\Http\\Controllers\\LinkController' => $baseDir . '/app/Http/Controllers/LinkController.php',
     'App\\Http\\Controllers\\ListaController' => $baseDir . '/app/Http/Controllers/ListaController.php',
     'App\\Http\\Controllers\\TextoController' => $baseDir . '/app/Http/Controllers/TextoController.php',
     'App\\Http\\Controllers\\TramiteController' => $baseDir . '/app/Http/Controllers/TramiteController.php',
@@ -34,6 +36,7 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Item' => $baseDir . '/app/Item.php',
+    'App\\Link' => $baseDir . '/app/Link.php',
     'App\\Lista' => $baseDir . '/app/Lista.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
