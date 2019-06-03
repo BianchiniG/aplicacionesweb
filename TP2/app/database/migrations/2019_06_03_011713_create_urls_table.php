@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdjuntosTable extends Migration
+class CreateLinksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateAdjuntosTable extends Migration
      */
     public function up()
     {
-        Schema::create('adjuntos', function (Blueprint $table) {
+        Schema::create('urls', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('titulo');
-            $table->string('nombre')->default('adjunto');
-            $table->timestamps();
-            $table->integer('id_tramite')->unsigned();
+            $table->string('nombre')->default('link');
+            $table->text('descripcion');
+            $table->text('url');
+            $table->integer('id_hipervinculo')->unsigned();
 
             // Foreign Key
-            $table->foreign('id_tramite')->references('id')->on('tramites');
+            $table->foreign('id_hipervinculo')->references('id')->on('hipervinculos');
         });
     }
 
@@ -32,6 +32,6 @@ class CreateAdjuntosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('adjuntos');
+        Schema::dropIfExists('links');
     }
 }
