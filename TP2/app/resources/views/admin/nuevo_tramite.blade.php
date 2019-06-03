@@ -11,6 +11,6 @@
 
 @section('contenido')
     <div id="admin">
-        <nuevo-tramite></nuevo-tramite>
+        <tramite></tramite>
     </div>
 @endsection
