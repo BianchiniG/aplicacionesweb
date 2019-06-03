@@ -2,8 +2,8 @@
     <div class="componente" :id="posicion">
         <div class="row" v-if="editable">
             <div class="col-md-9">
-                <input class="form-control" type="text" id="titulo" v-model="titulo">
-                <input class="form-control" type="text" id="contenido" v-model="contenido">
+                <input class="form-control" type="text" id="titulo" :placeholder="placeholders.titulo" v-model="titulo">
+                <input class="form-control" type="text" id="contenido" :placeholder="placeholders.contenido" v-model="contenido">
             </div>
             <div class="col-md-3">
                 <button class="btn btn-danger float-right" v-on:click="borrarme()"><icon name="times"></icon></button>
@@ -28,8 +28,12 @@
         data: function() {
             return {
                 tipo: 'texto',
-                titulo: '<titulo>',
-                contenido: '<contenido del componente texto>'
+                titulo: '',
+                contenido: '',
+                placeholders: {
+                    'titulo': '<titulo>',
+                    'contenido': '<contenido del componente texto>'
+                }
             }
         },
         methods: {

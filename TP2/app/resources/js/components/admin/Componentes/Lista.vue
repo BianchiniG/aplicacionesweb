@@ -2,9 +2,9 @@
     <div class="componente" :id="posicion">
         <div class="row">
             <div class="col-md-9">
-                <input v-if="editable" class="form-control" type="text" name="titulo" id="titulo" v-model="titulo">
+                <input v-if="editable" class="form-control" type="text" name="titulo" id="titulo" :placeholder="placeholders.titulo" v-model="titulo">
                 <h6 v-else class="section-title h2">{{ titulo }}</h6>
-                <input v-if="editable" class="form-control" type="text" name="contenido" id="contenido" v-model="descripcion">
+                <input v-if="editable" class="form-control" type="text" name="contenido" id="contenido" :placeholder="placeholders.contenido" v-model="descripcion">
                 <p v-else>{{ descripcion }}</p>
                 <div v-for="(item, index) in items" :key="index">
                     <component :is="item.tipo" :key="index" :posicion="index" :editable="editable" :datos="item.datos" v-on:borrarme="borrarItem"></component>
@@ -30,9 +30,13 @@
         data: function() {
             return {
                 indice: 0,
-                titulo: '<titulo>',
-                descripcion: '<descripcion del componente lista>',
-                items: []
+                titulo: '',
+                descripcion: '',
+                items: [],
+                placeholders: {
+                    'titulo': '<titulo>',
+                    'descripcion': '<descripcion del componente lista>'
+                }
             }
         },
         methods: {

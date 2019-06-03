@@ -48,9 +48,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="container">
-                    <input v-if="editable" class="form-control" type="text" v-model="titulo">
+                    <input v-if="editable" class="form-control" type="text" :placeholder="placeholders.titulo" v-model="titulo">
                     <h5 v-else class="section-title h1">{{ titulo }}</h5>
-                    <input v-if="editable" class="form-control" type="text" v-model="descripcion">
+                    <input v-if="editable" class="form-control" type="text" :placeholder="placeholders.descripcion" v-model="descripcion">
                     <p v-else>{{ descripcion }}</p>
                     <br>
                     <div v-for="(hijo, indice) in hijos" :key="indice">
@@ -69,9 +69,13 @@
         data: function() {
             return {
                 editable: true,
-                titulo: "<El titulo del tramite>",
-                descripcion: "<La descripcion del tramite>",
-                hijos: []
+                titulo: "",
+                descripcion: "",
+                hijos: [],
+                placeholders: {
+                    'titulo': "<El titulo del tramite>",
+                    'descripcion': "<La descripcion del tramite>"
+                }
             }
         },
         methods: {

@@ -2,7 +2,7 @@
     <div class="componente" :id="posicion">
         <div class="row">
             <div class="col-md-9">
-                <input v-if="editable" class="form-control" type="text" name="titulo" id="titulo" v-model="titulo">
+                <input v-if="editable" class="form-control" type="text" name="titulo" id="titulo" :placeholder="placeholders.titulo" v-model="titulo">
                 <h6 v-else class="section-title h2">{{ titulo }}</h6>
                 <div v-for="(url, index) in urls" :key="index">
                     <component :is="url.tipo" :key="index" :posicion="index" :editable="editable" :datos="url.datos" v-on:borrarme="borrarUrl"></component>
@@ -28,8 +28,11 @@
         data: function() {
             return {
                 indice: 0,
-                titulo: '<titulo>',
-                urls: []
+                titulo: '',
+                urls: [],
+                placeholders: {
+                    'titulo': '<titulo de la seccion de links>'
+                }
             }
         },
         methods: {

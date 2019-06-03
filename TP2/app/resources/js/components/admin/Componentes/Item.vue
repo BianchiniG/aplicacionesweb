@@ -4,7 +4,7 @@
             <icon name="chevron-right"></icon>
         </div>
         <div class="col-md-5">
-            <input type="text" class="form-control" v-model="contenido">
+            <input type="text" class="form-control" :placeholder="placeholders.contenido" v-model="contenido">
         </div>
         <div class="col-md-6">
             <button class="btn btn-danger" @click="borrarme"><icon name="times"></icon> Borrar</button>
@@ -20,7 +20,10 @@
         props: ['editable', 'posicion', 'datos'],
         data: function () {
             return {
-                contenido: "<contenido del item>"
+                contenido: "",
+                placeholders: {
+                    'contenido': '<contenido del item>'
+                }
             }
         },
         methods: {

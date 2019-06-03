@@ -4,10 +4,10 @@
             <icon name="circle"></icon>
         </div>
         <div class="col-md-4">
-            <input type="text" class="form-control" v-model="url">
+            <input type="text" class="form-control" :placeholder="placeholders.url" v-model="url">
         </div>
         <div class="col-md-4">
-            <input type="text" class="form-control" v-model="descripcion">
+            <input type="text" class="form-control" :placeholder="placeholders.descripcion" v-model="descripcion">
         </div>
         <div class="col-md-3">
             <button class="btn btn-danger" @click="borrarme"><icon name="times"></icon> Borrar</button>
@@ -23,8 +23,12 @@
         props: ['editable', 'posicion'],
         data: function () {
             return {
-                url: "<contenido del item>",
-                descripcion: "<descripcion de la url>"
+                url: "",
+                descripcion: "",
+                placeholders: {
+                    'url': "<contenido del item>",
+                    'descripcion': "<descripcion de la url>"
+                }
             }
         },
         methods: {
