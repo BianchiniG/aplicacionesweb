@@ -24,10 +24,9 @@
 
 <script>
     export default {
-        props: ['posicion', 'editable'],
+        props: ['posicion', 'editable', 'tipo'],
         data: function() {
             return {
-                indice: 0,
                 titulo: '',
                 urls: [],
                 placeholders: {
@@ -46,6 +45,29 @@
             },
             borrarUrl: function(indice) {
                 this.urls.splice(indice, 1);
+            },
+            getLinks: function () {
+                var items = [];
+                var cuenta = 1;
+                for (var i = 0; i < this.$children.length; i++) {
+                    var hijo = this.$children[i];
+                    if (hijo.tipo == "url") {
+                        items.push({
+                            'indice': cuenta++,
+                            'url': hijo.url,
+                            'descripcion': hijo.descripcion
+                        })
+                    }
+                }
+                return items;
+            },
+            getDatos: function () {
+                return {
+                    'tipo': this.tipo,
+                    'posicion': this.posicion,
+                    'titulo': this.titulo,
+                    'links': this.getLinks()
+                }
             }
         }
     }

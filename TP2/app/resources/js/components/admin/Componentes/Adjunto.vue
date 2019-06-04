@@ -24,7 +24,7 @@
 
 <script>
     export default {
-        props: ['posicion', 'editable'],
+        props: ['posicion', 'editable', 'tipo'],
         data: function() {
             return {
                 indice: 0,
@@ -46,6 +46,29 @@
             },
             borrarArchivo: function(indice) {
                 this.archivos.splice(indice, 1);
+            },
+            getArchivos: function () {
+                var items = [];
+                var cuenta = 1;
+                for (var i = 0; i < this.$children.length; i++) {
+                    var hijo = this.$children[i];
+                    if (hijo.tipo == "archivo") {
+                        items.push({
+                            'indice': cuenta++,
+                            'path': hijo.path,
+                            'tipo': hijo.tipo_archivo
+                        })
+                    }
+                }
+                return items;
+            },
+            getDatos: function () {
+                return {
+                    'tipo': this.tipo,
+                    'posicion': this.posicion,
+                    'titulo': this.titulo,
+                    'archivos': this.getArchivos()
+                }
             }
         }
     }

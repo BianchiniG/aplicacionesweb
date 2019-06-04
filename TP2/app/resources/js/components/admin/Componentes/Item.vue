@@ -20,6 +20,7 @@
         props: ['editable', 'posicion', 'datos'],
         data: function () {
             return {
+                tipo: "item",
                 contenido: "",
                 placeholders: {
                     'contenido': '<contenido del item>'

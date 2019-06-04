@@ -4,7 +4,7 @@
             <div class="col-md-9">
                 <input v-if="editable" class="form-control" type="text" name="titulo" id="titulo" :placeholder="placeholders.titulo" v-model="titulo">
                 <h6 v-else class="section-title h2">{{ titulo }}</h6>
-                <input v-if="editable" class="form-control" type="text" name="contenido" id="contenido" :placeholder="placeholders.contenido" v-model="descripcion">
+                <input v-if="editable" class="form-control" type="text" name="descripcion" id="descripcion" :placeholder="placeholders.descripcion" v-model="descripcion">
                 <p v-else>{{ descripcion }}</p>
                 <div v-for="(item, index) in items" :key="index">
                     <component :is="item.tipo" :key="index" :posicion="index" :editable="editable" :datos="item.datos" v-on:borrarme="borrarItem"></component>
@@ -26,10 +26,9 @@
 
 <script>
     export default {
-        props: ['posicion', 'editable'],
+        props: ['posicion', 'editable', 'tipo'],
         data: function() {
             return {
-                indice: 0,
                 titulo: '',
                 descripcion: '',
                 items: [],
@@ -50,6 +49,29 @@
             },
             borrarItem: function(indice) {
                 this.items.splice(indice, 1);
+            },
+            getItems: function () {
+                var items = [];
+                var cuenta = 1;
+                for (var i = 0; i < this.$children.length; i++) {
+                    var hijo = this.$children[i];
+                    if (hijo.tipo == "item") {
+                        items.push({
+                            'indice': cuenta++,
+                            'contenido': hijo.contenido
+                        })
+                    }
+                }
+                return items;
+            },
+            getDatos: function () {
+                return {
+                    'tipo': this.tipo,
+                    'posicion': this.posicion,
+                    'titulo': this.titulo,
+                    'descripcion': this.descripcion,
+                    'items': this.getItems()
+                }
             }
         }
     }

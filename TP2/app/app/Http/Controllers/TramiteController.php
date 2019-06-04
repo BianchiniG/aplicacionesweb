@@ -14,6 +14,7 @@ class TramiteController extends Controller
      * @return App\Tramite $tramite
      */
     public function create(Request $request){
+        dd($request);
         $tramite = new Tramite();
         return $tramite->createTramite($request);
     }

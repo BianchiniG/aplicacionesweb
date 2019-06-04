@@ -96,7 +96,7 @@ class Tramite extends Model
      * @return App\Tramite
      */
     public function createTramite($datos) {
-        return Tramite::create($datos);
+        
     }
 
     /**

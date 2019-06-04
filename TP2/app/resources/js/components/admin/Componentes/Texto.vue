@@ -24,10 +24,9 @@
 
 <script>
     export default {
-        props: ['editable', 'posicion'],
+        props: ['editable', 'posicion', 'tipo'],
         data: function() {
             return {
-                tipo: 'texto',
                 titulo: '',
                 contenido: '',
                 placeholders: {
@@ -39,7 +38,15 @@
         methods: {
             borrarme: function () {
                 this.$emit('borrarme', this.posicion);
-            }
+            },
+            getDatos: function () {
+                return {
+                    'tipo': this.tipo,
+                    'posicion': this.posicion,
+                    'titulo': this.titulo,
+                    'contenido': this.contenido
+                };
+            } 
         }
     }
 </script>

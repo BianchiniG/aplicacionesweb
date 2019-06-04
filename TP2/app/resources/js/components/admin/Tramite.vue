@@ -54,7 +54,7 @@
                     <p v-else>{{ descripcion }}</p>
                     <br>
                     <div v-for="(hijo, indice) in hijos" :key="indice">
-                        <component :is="hijo.tipo" :key="hijo.posicion" :posicion="indice" :editable="editable" :datos="hijo.datos" v-on:borrarme="borrarComponente"></component>
+                        <component :is="hijo.tipo" :key="hijo.posicion" :tipo="hijo.tipo" :posicion="indice" :editable="editable" :datos="hijo.datos" v-on:borrarme="borrarComponente"></component>
                         <br>
                     </div>
                 </div>
@@ -99,7 +99,35 @@
                 }
             },
             guardarTramite: function() {
-                alert("Guardar Tramite!");
+                var datos = this.obtenerDatosTramite();
+                let obj = this;
+                axios.post('/admin/nuevo_tramite/crear', {
+                    datos: datos
+                }).then(function (response) {
+                    if (response.status == 200) {
+                        location.reload();
+                    } else {
+                        console.log(response);
+                        alert("Ocurrio un error, intentelo nuevamente!");
+                    }
+                })
+            },
+            obtenerDatosTramite: function() {
+                // Obtengo el componente tramite de vue y creo la estructura basica que se va a devolver.
+                var componente_tramite = this.$root.$children[0];
+                var tramite = {
+                    'titulo': componente_tramite._data.titulo,
+                    'descripcion': componente_tramite._data.descripcion,
+                    'componentes': []
+                }
+
+                // Recorro los hijos, obtengo los datos y los guardo en la estructura que se va a devolver.
+                for (var i = 0; i < componente_tramite.$children.length; i++) {
+                    var componente_hijo = componente_tramite.$children[i];
+                    tramite.componentes.push(componente_hijo.getDatos());
+                }
+
+                return tramite;
             }
         }
     }

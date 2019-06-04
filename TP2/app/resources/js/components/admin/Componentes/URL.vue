@@ -23,6 +23,7 @@
         props: ['editable', 'posicion'],
         data: function () {
             return {
+                tipo: "url",
                 url: "",
                 descripcion: "",
                 placeholders: {

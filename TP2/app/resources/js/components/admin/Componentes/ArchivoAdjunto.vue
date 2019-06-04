@@ -20,8 +20,9 @@
         props: ['editable', 'posicion'],
         data: function () {
             return {
+                tipo: 'archivo',
                 path: "<path del archivo>",
-                tipo: "<tipo del archivo>"
+                tipo_archivo: "<tipo del archivo>"
             }
         },
         methods: {
