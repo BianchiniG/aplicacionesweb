@@ -43,7 +43,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin'], function() {
     Route::get('/editar_tramite/{id}', 'TramiteController@editarTramiteView');
     Route::post('/editar_tramite/actualizar', 'TramiteController@updateTramite');
 
-    Route::delete('/tramite/{id}', 'TramiteController@deleteTramite');
+    Route::delete('/tramite/{id}', 'TramiteController@delete');
 
     Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 });

@@ -13,8 +13,7 @@ class HipervinculoTableSeeder extends Seeder
     public function run()
     {
         Hipervinculo::create(array(
-            'titulo' => 'Hipervinculo',
-            'url' => 'https://worldofwarcraft.com/es-es/game/pvp/leaderboards/3v3',
+            'titulo' => 'Links de interes',
             'id_tramite' => 1
         ));
     }

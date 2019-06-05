@@ -105,6 +105,7 @@
                     datos: datos
                 }).then(function (response) {
                     if (response.status == 200) {
+                        alert("El tramite se creo exitosamente!");
                         location.reload();
                     } else {
                         console.log(response);

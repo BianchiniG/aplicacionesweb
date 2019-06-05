@@ -14,7 +14,6 @@ class TramiteController extends Controller
      * @return App\Tramite $tramite
      */
     public function create(Request $request){
-        dd($request);
         $tramite = new Tramite();
         return $tramite->createTramite($request);
     }
@@ -49,7 +48,7 @@ class TramiteController extends Controller
      */
     public function delete($id) {
         $tramite = new Tramite();
-        return $tramite->findById($id)->delete();
+        return $tramite->findById($id)->removeTramite();
     }
 
     /**

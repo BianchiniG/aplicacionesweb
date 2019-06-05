@@ -2,6 +2,9 @@
 
 namespace App;
 
+use App\Texto;
+use App\Lista;
+use App\Hipervinculo;
 use App\Adjunto;
 
 use Illuminate\Database\Eloquent\Model;
@@ -92,11 +95,52 @@ class Tramite extends Model
     /**
      * Metodo de creacion de un tramite nuevo
      *
-     * @param array $datos
+     * @param array $datos_request
      * @return App\Tramite
      */
-    public function createTramite($datos) {
-        
+    public function createTramite($datos_request) {
+        // Ingreso los datos del tramite y lo guardo.
+        $this->titulo = $datos_request['datos']['titulo'];
+        $this->descripcion = $datos_request['datos']['descripcion'];
+        $this->save();
+        // Creo los componentes hijos.
+        $this->crearComponentes($datos_request['datos']['componentes']);
+    }
+
+    /**
+     * Recibe un arreglo de componentes y los crea.
+     * 
+     * @param array $componentes
+     * @return boolean
+     */
+    public function crearComponentes($componentes) {
+        try {
+            foreach ($componentes as $componente) {
+                switch ($componente['tipo']) {
+                    case 'texto':
+                        $texto = new Texto();
+                        $texto->crear($componente, $this->id);
+                        break;
+                    case 'lista':
+                        $lista = new Lista();
+                        $lista->crear($componente, $this->id);
+                        break;
+                    case 'adjunto':
+                        $adjunto = new Adjunto();
+                        $adjunto->crear($componente, $this->id);
+                        break;
+                    case 'hipervinculo':
+                        $hipervinculo = new Hipervinculo();
+                        $hipervinculo->crear($componente, $this->id);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 
     /**
@@ -134,7 +178,6 @@ class Tramite extends Model
     public function removeTramite() {
         try {
             foreach ($this->componentes as $componente) {
-                echo get_class($componente);
                 $componente->removeComponent();
             }
             $this->delete();

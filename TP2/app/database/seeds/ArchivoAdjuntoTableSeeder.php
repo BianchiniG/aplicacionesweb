@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Adjunto;
 
-class AdjuntoTableSeeder extends Seeder
+class ArchivoAdjuntoTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
