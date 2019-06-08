@@ -11,3 +11,4 @@ Como el proyecto contiene tambien la estructura completa de docker para poder co
 * Entre los demas archivos que son externos a esas carpetas podemos encontrar el ```docker-compose.yml``` (que es de quien construimos el stack de desarrollo y prueba del programa).
 
 ## Resolucion
+
