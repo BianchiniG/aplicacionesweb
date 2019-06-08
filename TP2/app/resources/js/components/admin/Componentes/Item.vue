@@ -18,6 +18,11 @@
 <script>
     export default {
         props: ['editable', 'posicion', 'datos'],
+        mounted() {
+            if (this.datos) {
+                this.setDatos();
+            }
+        },
         data: function () {
             return {
                 tipo: "item",
@@ -30,6 +35,9 @@
         methods: {
             borrarme: function() {
                 this.$emit('borrarme', this.posicion);
+            },
+            setDatos: function () {
+                this.contenido = this.datos
             }
         }
     }

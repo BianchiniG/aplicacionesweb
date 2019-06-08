@@ -149,21 +149,13 @@ class Tramite extends Model
      * @param array $datos
      * @return boolean $actualizados
      */
-    public function updateComplete($datos) {
+    public function updateTramite($datos) {
         try {
-            // Recorrer los borrados.
-            foreach ($datos['componentes_borrados'] as $componente) {
-                $componente->removeComponent();
-            }
-
-            // Recorrer el resto.
-            foreach ($datos['componentes_actualizados'] as $componente) {
-                // $componente->update
-            }
-
             // Actualizar datos basicos.
             $this->titulo = $datos['titulo'];
             $this->descripcion = $datos['descripcion'];
+
+            // TODO.
         } catch (\Exception $e) {
             echo $e->getMessage();
             return false;

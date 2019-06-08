@@ -26,7 +26,12 @@
 
 <script>
     export default {
-        props: ['posicion', 'editable', 'tipo'],
+        props: ['datos', 'posicion', 'editable', 'tipo'],
+        mounted() {
+            if (this.datos) {
+                this.setDatos();
+            }
+        },
         data: function() {
             return {
                 titulo: '',
@@ -71,6 +76,19 @@
                     'titulo': this.titulo,
                     'descripcion': this.descripcion,
                     'items': this.getItems()
+                }
+            },
+            setDatos: function () {
+                this.titulo = this.datos.titulo;
+                this.descripcion = this.datos.descripcion;
+                var cantidad = this.datos.items.length;
+                for (var i = 0; i < cantidad; i++) {
+                    var item = this.datos.items[i];
+                    this.items.push({
+                        'tipo': item.nombre,
+                        'indice': i,
+                        'datos': item.contenido
+                    });
                 }
             }
         }

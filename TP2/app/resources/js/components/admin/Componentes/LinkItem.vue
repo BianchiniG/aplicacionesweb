@@ -20,10 +20,16 @@
 
 <script>
     export default {
-        props: ['editable', 'posicion'],
+        props: ['datos', 'editable', 'posicion'],
+        mounted() {
+            console.log(this.datos);
+            if (this.datos) {
+                this.setDatos();
+            }
+        },
         data: function () {
             return {
-                tipo: "url",
+                tipo: "link-item",
                 url: "",
                 descripcion: "",
                 placeholders: {
@@ -35,6 +41,10 @@
         methods: {
             borrarme: function() {
                 this.$emit('borrarme', this.posicion);
+            },
+            setDatos: function () {
+                this.url = this.datos.url,
+                this.descripcion = this.datos.descripcion
             }
         }
     }

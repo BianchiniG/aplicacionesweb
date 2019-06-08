@@ -24,7 +24,12 @@
 
 <script>
     export default {
-        props: ['editable', 'posicion', 'tipo'],
+        props: ['datos', 'editable', 'posicion', 'tipo'],
+        mounted() {
+            if (this.datos) {
+                this.setDatos();
+            }
+        },
         data: function() {
             return {
                 titulo: '',
@@ -46,7 +51,11 @@
                     'titulo': this.titulo,
                     'contenido': this.contenido
                 };
-            } 
+            },
+            setDatos: function () {
+                this.titulo = this.datos.titulo;
+                this.contenido = this.datos.contenido;
+            }
         }
     }
 </script>

@@ -32,7 +32,10 @@
             </div>
         </div>
 
-        <center><h2>Alta de un Tramite</h2></center>
+        <center>
+            <h2 v-if="editando_tramite">Editar Tramite</h2>
+            <h2 v-else>Alta de un Tramite</h2>
+        </center>
         <div class="row">
             <div class="col-md-4">
                 <button v-if="editable" type="button" id="boton-vista-previa" class="btn btn-info pull-right" style="position: absolute; right: 10px; width: 200px;" @click="vistaPrevia"><i id="icono-boton-vista-previa" class="fa fa-eye"></i> Vista Previa</button>
@@ -58,7 +61,8 @@
                         <br>
                     </div>
                 </div>
-                <button class="btn btn-success" @click="guardarTramite"><i class="fa fa-save"></i> ¡Guardar Tramite!</button>
+                <button v-if="editando_tramite" class="btn btn-success" @click="actualizarTramite"><i class="fa fa-save"></i> ¡Actualizar Tramite!</button>
+                <button v-else class="btn btn-success" @click="guardarTramite"><i class="fa fa-save"></i> ¡Guardar Tramite!</button>
             </div>
         </div>
     </div>
@@ -66,9 +70,18 @@
 
 <script>
     export default {
+        props: ['datostramite'],
+        mounted() {
+            // Verifica si vienen datos del tramite, en cuyo caso se pasa a edicion.
+            if (this.datostramite) {
+                this.editando_tramite = true;
+                this.cargarDatosTramite(this.datostramite);
+            }
+        },
         data: function() {
             return {
                 editable: true,
+                editando_tramite: false,
                 titulo: "",
                 descripcion: "",
                 hijos: [],
@@ -98,15 +111,44 @@
                     this.editable = true;
                 }
             },
+            cargarDatosTramite: function(datos) {
+                // Carga los datos del tramite.
+                this.titulo = this.datostramite.titulo;
+                this.descripcion = this.datostramite.descripcion;
+                // Recorre y carga los componentes.
+                for (var indice in this.datostramite.componentes) {
+                    var componente = this.datostramite.componentes[indice];
+                    this.hijos.push({
+                        'tipo': componente.nombre,
+                        'datos': componente
+                    });
+                }
+            },
             guardarTramite: function() {
                 var datos = this.obtenerDatosTramite();
-                let obj = this;
                 axios.post('/admin/nuevo_tramite/crear', {
                     datos: datos
                 }).then(function (response) {
                     if (response.status == 200) {
                         alert("El tramite se creo exitosamente!");
                         location.reload();
+                    } else {
+                        console.log(response);
+                        alert("Ocurrio un error, intentelo nuevamente!");
+                    }
+                })
+            },
+            actualizarTramite: function () {
+                var datos = this.obtenerDatosTramite();
+                console.log(datos);
+                axios.post('/admin/editar_tramite/actualizar', {
+                    id: this.datostramite.id,
+                    datos: datos
+                }).then(function (response) {
+                    console.log(response);
+                    if (response.status == 200) {
+                        alert("Edicion correcta!");
+                        // location.reload();  // TODO.
                     } else {
                         console.log(response);
                         alert("Ocurrio un error, intentelo nuevamente!");

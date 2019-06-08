@@ -30,7 +30,7 @@ Vue.component('item', require('./components/admin/Componentes/Item.vue').default
 Vue.component('adjunto', require('./components/admin/Componentes/Adjunto.vue').default);
 Vue.component('archivo-adjunto', require('./components/admin/Componentes/ArchivoAdjunto.vue').default);
 Vue.component('hipervinculo', require('./components/admin/Componentes/Hipervinculo.vue').default);
-Vue.component('url', require('./components/admin/Componentes/URL.vue').default);
+Vue.component('link-item', require('./components/admin/Componentes/LinkItem.vue').default);
 
 Vue.component('tramite', require('./components/admin/Tramite.vue').default);
 Vue.component('tramites', require('./components/admin/Tramites.vue').default);

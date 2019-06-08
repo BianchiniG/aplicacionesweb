@@ -24,7 +24,12 @@
 
 <script>
     export default {
-        props: ['posicion', 'editable', 'tipo'],
+        props: ['datos', 'posicion', 'editable', 'tipo'],
+        mounted() {
+            if (this.datos) {
+                this.setDatos();
+            }
+        },
         data: function() {
             return {
                 titulo: '',
@@ -67,6 +72,18 @@
                     'posicion': this.posicion,
                     'titulo': this.titulo,
                     'links': this.getLinks()
+                }
+            },
+            setDatos: function () {
+                this.titulo = this.datos.titulo;
+                var cantidad = this.datos.links.length;
+                for (var i = 0; i < cantidad; i++) {
+                    var link_item = this.datos.links[i];
+                    this.urls.push({
+                        'tipo': 'link-item',
+                        'indice': i,
+                        'datos': link_item
+                    })
                 }
             }
         }
