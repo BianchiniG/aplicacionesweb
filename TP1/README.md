@@ -7,7 +7,8 @@ Como el proyecto contiene tambien la estructura completa de docker para poder co
 * El directorio ```bdd_files``` contiene los archivos de MySQL para asegurar la persistencia de datos mas alla de los contenedores.
 * El directorio ```build``` contiene el dockerfile y el archivo de virtualhosts de apache. Ambos necesarios para la construccion del contenedor de la aplicacion.
 * El directorio ```app``` es el que contiene todos los archivos de la aplicacion, esta mapeado al directorio ```/var/www/html``` del contenedor de la aplicacion.
-* Entre los demas archivos que son externos a esas carpetas podemos encontrar el ```docker-compose.yml``` (que es de quien construimos el stack de desarrollo y prueba del programa) y el ```Enunciado.docx``` que es donde encontramos el enunciado del problema.
+* El directorio ```doc``` tenemos la documentacion de la materia, comprendida por los archivos ```Clase-01-IntroWeb.pdf``` para la parte teorica y ```Enunciado.docx``` como el enunciado del problema resuelto en este trabajo.
+* Entre los demas archivos que son externos a esas carpetas podemos encontrar el ```docker-compose.yml``` (que es de quien construimos el stack de desarrollo y prueba del programa).
 
 ## Resolucion
 
