@@ -1770,42 +1770,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['datos'],
-  mounted: function mounted() {
-    console.log(this.datos);
-  },
   methods: {
     download: function download(id_tramite, nombre_archivo) {
-      window.location = '/download/' + id_tramite + '/' + nombre_archivo; // console.log(id_tramite);
-      // console.log(nombre_archivo);
-      // $.ajax({
-      //     dataType: "json",
-      //     url: '/download/'+id_tramite+'/'+nombre_archivo,
-      //     success: function(data) {
-      //         console.log(data)
-      //     },
-      //     error: function(jqXHR, exception) {
-      //         var msg = '';
-      //         if (jqXHR.status === 0) {
-      //             msg = 'No estas conectado/a. Verifica la conexion.';
-      //         } else if (jqXHR.status == 404) {
-      //             msg = 'Pagina no encontrada. [404]';
-      //         } else if (jqXHR.status == 500) {
-      //             msg = 'Error interno del servidor [500].';
-      //         } else if (exception === 'parsererror') {
-      //             msg = 'Error de parsing.';
-      //         } else if (exception === 'timeout') {
-      //             msg = 'Tiempo de espera agotado.';
-      //         } else if (exception === 'abort') {
-      //             msg = 'Se aborto la llamada Ajax.';
-      //         } else {
-      //             msg = 'Error no identificado: ' + jqXHR.responseText;
-      //         }
-      //         console.log(jqXHR);
-      //     },
-      // });
+      window.location = '/download/' + id_tramite + '/' + nombre_archivo;
     }
   }
 });
@@ -1821,6 +1790,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -1984,14 +1957,13 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    console.log('Se cargaron los tramites.');
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/tramites').then(function (res) {
       _this.$set(_this.$data, 'tramites', res.data.tramites);
     });
   },
   data: function data() {
     return {
-      tramites: [1, 2, 3]
+      tramites: []
     };
   }
 });
@@ -37292,10 +37264,6 @@ var render = function() {
       _vm._v(_vm._s(_vm.datos.titulo))
     ]),
     _vm._v(" "),
-    _c("a", { staticClass: "btn btn-success", attrs: { href: "/download" } }, [
-      _vm._v(" Download ")
-    ]),
-    _vm._v(" "),
     _c(
       "button",
       {
@@ -37332,17 +37300,28 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("h6", { staticClass: "section-title h2" }, [
-      _vm._v(_vm._s(_vm.datos.titulo))
-    ]),
-    _vm._v(" "),
-    _c("li", [
-      _c("a", { attrs: { href: _vm.datos.url } }, [
-        _vm._v(" " + _vm._s(_vm.datos.titulo) + " ")
-      ])
-    ])
-  ])
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("h6", { staticClass: "section-title h2" }, [
+        _vm._v(_vm._s(_vm.datos.titulo))
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.datos.links, function(link) {
+        return _c("div", { key: link.id }, [
+          _c("ul", [
+            _c("li", { staticClass: "fas fa-chevron-right" }, [
+              _c("a", { attrs: { href: link.url } }, [
+                _vm._v(" " + _vm._s(link.descripcion) + " ")
+              ])
+            ])
+          ])
+        ])
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
