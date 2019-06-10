@@ -19,25 +19,14 @@ class TramiteController extends Controller
     }
 
     /**
-     * Actualiza los datos basicos de un tramite.
+     * Actualiza los datos de un tramite.
      *
      * @param Request $request
      * @return App\Tramite $tramite
      */
     public function update(Request $request){
         $tramite = new Tramite();
-        return $tramite->findById($request->id)->update(array($request));
-    }
-
-    /**
-     * Actualiza los componentes de un tramite.
-     *
-     * @param Request $request
-     * @return App\Tramite $tramite
-     */
-    public function updateComponents(Request $request) {
-        $tramite = new Tramite();
-        return $tramite->findById($request->id)->updateComponents($request);
+        return $tramite->findById($request->id)->updateTramite(array($request->datos));
     }
 
     /**
@@ -48,7 +37,7 @@ class TramiteController extends Controller
      */
     public function delete($id) {
         $tramite = new Tramite();
-        return $tramite->findById($id)->delete();
+        return $tramite->findById($id)->removeTramite();
     }
 
     /**

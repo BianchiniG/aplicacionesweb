@@ -2,6 +2,11 @@
 
 namespace App;
 
+use App\Texto;
+use App\Lista;
+use App\Hipervinculo;
+use App\Adjunto;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Tramite extends Model
@@ -90,11 +95,52 @@ class Tramite extends Model
     /**
      * Metodo de creacion de un tramite nuevo
      *
-     * @param array $datos
+     * @param array $datos_request
      * @return App\Tramite
      */
-    public function createTramite($datos) {
-        return Tramite::create($datos);
+    public function createTramite($datos_request) {
+        // Ingreso los datos del tramite y lo guardo.
+        $this->titulo = $datos_request['datos']['titulo'];
+        $this->descripcion = $datos_request['datos']['descripcion'];
+        $this->save();
+        // Creo los componentes hijos.
+        $this->crearComponentes($datos_request['datos']['componentes']);
+    }
+
+    /**
+     * Recibe un arreglo de componentes y los crea.
+     * 
+     * @param array $componentes
+     * @return boolean
+     */
+    public function crearComponentes($componentes) {
+        try {
+            foreach ($componentes as $componente) {
+                switch ($componente['tipo']) {
+                    case 'texto':
+                        $texto = new Texto();
+                        $texto->crear($componente, $this->id);
+                        break;
+                    case 'lista':
+                        $lista = new Lista();
+                        $lista->crear($componente, $this->id);
+                        break;
+                    case 'adjunto':
+                        $adjunto = new Adjunto();
+                        $adjunto->crear($componente, $this->id);
+                        break;
+                    case 'hipervinculo':
+                        $hipervinculo = new Hipervinculo();
+                        $hipervinculo->crear($componente, $this->id);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
     }
 
     /**
@@ -103,21 +149,13 @@ class Tramite extends Model
      * @param array $datos
      * @return boolean $actualizados
      */
-    public function updateComplete($datos) {
+    public function updateTramite($datos) {
         try {
-            // Recorrer los borrados.
-            foreach ($datos['componentes_borrados'] as $componente) {
-                $componente->removeComponent();
-            }
-
-            // Recorrer el resto.
-            foreach ($datos['componentes_actualizados'] as $componente) {
-                // $componente->update
-            }
-
             // Actualizar datos basicos.
             $this->titulo = $datos['titulo'];
             $this->descripcion = $datos['descripcion'];
+
+            // TODO.
         } catch (\Exception $e) {
             echo $e->getMessage();
             return false;
@@ -132,7 +170,6 @@ class Tramite extends Model
     public function removeTramite() {
         try {
             foreach ($this->componentes as $componente) {
-                echo get_class($componente);
                 $componente->removeComponent();
             }
             $this->delete();
@@ -142,5 +179,16 @@ class Tramite extends Model
             echo $e->getMessage();
             return "false";
         }
+    }
+
+    /**
+     * Recibe el nombre de un adjunto que pertenece a este tramite y devuelve el path de descarga.
+     * 
+     * @param string $nombre
+     * @return string $path
+     */
+    public function getFilePath($nombre) {
+        $adjunto = Adjunto::where('nombre_archivo', $nombre)->where('id_tramite', $this->id)->first();
+        return config('app.files_directory').$this->id."/".$adjunto->nombre_archivo;
     }
 }

@@ -16,7 +16,6 @@ class CreateHipervinculosTable extends Migration
         Schema::create('hipervinculos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('titulo');
-            $table->string('url');
             $table->string('nombre')->default('hipervinculo');
             $table->timestamps();
             $table->integer('id_tramite')->unsigned();

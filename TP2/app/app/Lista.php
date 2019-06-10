@@ -10,7 +10,9 @@ class Lista extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'titulo',
-        'descripcion'
+        'descripcion',
+        'orden',
+        'id_tramite'
     ];
     public $timestamps = false;
     protected $with = ['items']; // Carga ansiosa de Items
@@ -26,15 +28,41 @@ class Lista extends Model
     }
 
     /**
+     * Crea el componente.
+     * 
+     * @param array $datos
+     * @param integer $id_tramite
+     * @return App\Texto
+     */
+    public function crear($datos, $id_tramite) {
+        try {
+            // Primero creo el componente LISTA
+            $this->titulo = $datos['titulo'];
+            $this->descripcion = $datos['descripcion'];
+            $this->orden = $datos['posicion'];
+            $this->id_tramite = $id_tramite;
+            $this->save();
+    
+            // Creo los items
+            foreach ($datos['items'] as $i) {
+                $item = new Item();
+                $item->crear($i, $this->id);
+            }
+
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+
+    /**
      * Borra el componente.
      * 
      * @return boolean $borrado
      */
     public function removeComponent() {
-        echo "Entre a borrar una lista\n";
         try {
             foreach ($this->items as $item) {
-                echo "Recorriendo los items\n";
                 $item->delete();
             }
             $this->delete();

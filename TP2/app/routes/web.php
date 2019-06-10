@@ -19,7 +19,7 @@ Route::get('ver_tramite/{id}', 'TramiteController@verTramiteView');
 Route::get('/tramites', 'TramiteController@all');
 Route::get('/tramite/{id}', 'TramiteController@getTramite');
 
-Route::get('/download/{file}', 'AdjuntoController@downloadFile');
+Route::get('/download/{id_tramite}/{file}', 'AdjuntoController@downloadFile');
 
 
 /**
@@ -34,14 +34,16 @@ Route::group(['middleware' => ['auth'], 'prefix' => '/admin'], function() {
     Route::get('/', 'AdminController@index')->name('admin_home');
 
     Route::get('/lista_tramites', 'TramiteController@listaTramitesView');
-    Route::get('/nuevo_tramite', 'TramiteController@nuevoTramiteView');
-    Route::get('/editar_tramite/{id}', 'TramiteController@editarTramiteView');
-
-    Route::get('/tramites', 'TramiteController@all');
     Route::get('/tramite/{id}', 'TramiteController@getTramite');
-    Route::post('/tramite/new', 'TramiteController@createTramite');  // TODO
-    Route::post('/tramite/update', 'TramiteController@updateTramite');
-    Route::delete('/tramite/{id}', 'TramiteController@deleteTramite');
+    Route::get('/tramites', 'TramiteController@all');
+
+    Route::get('/nuevo_tramite', 'TramiteController@nuevoTramiteView');
+    Route::post('/nuevo_tramite/crear', 'TramiteController@create');
+
+    Route::get('/editar_tramite/{id}', 'TramiteController@editarTramiteView');
+    Route::post('/editar_tramite/actualizar', 'TramiteController@update');
+
+    Route::delete('/tramite/{id}', 'TramiteController@delete');
 
     Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 });

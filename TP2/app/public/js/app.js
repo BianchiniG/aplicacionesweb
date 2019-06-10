@@ -1772,8 +1772,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['datos'],
-  mounted: function mounted() {
-    console.log(this.datos);
+  methods: {
+    download: function download(id_tramite, nombre_archivo) {
+      window.location = '/download/' + id_tramite + '/' + nombre_archivo;
+    }
   }
 });
 
@@ -1788,6 +1790,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -1951,14 +1957,13 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    console.log('Se cargaron los tramites.');
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/tramites').then(function (res) {
       _this.$set(_this.$data, 'tramites', res.data.tramites);
     });
   },
   data: function data() {
     return {
-      tramites: [1, 2, 3]
+      tramites: []
     };
   }
 });
@@ -37259,9 +37264,18 @@ var render = function() {
       _vm._v(_vm._s(_vm.datos.titulo))
     ]),
     _vm._v(" "),
-    _c("a", { staticClass: "btn btn-success", attrs: { href: "/download" } }, [
-      _vm._v(" Download ")
-    ])
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-success",
+        on: {
+          click: function($event) {
+            return _vm.download(_vm.datos.id_tramite, _vm.datos.nombre_archivo)
+          }
+        }
+      },
+      [_vm._v(" Download ")]
+    )
   ])
 }
 var staticRenderFns = []
@@ -37286,17 +37300,28 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("h6", { staticClass: "section-title h2" }, [
-      _vm._v(_vm._s(_vm.datos.titulo))
-    ]),
-    _vm._v(" "),
-    _c("li", [
-      _c("a", { attrs: { href: _vm.datos.url } }, [
-        _vm._v(" " + _vm._s(_vm.datos.titulo) + " ")
-      ])
-    ])
-  ])
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("h6", { staticClass: "section-title h2" }, [
+        _vm._v(_vm._s(_vm.datos.titulo))
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.datos.links, function(link) {
+        return _c("div", { key: link.id }, [
+          _c("ul", [
+            _c("li", { staticClass: "fas fa-chevron-right" }, [
+              _c("a", { attrs: { href: link.url } }, [
+                _vm._v(" " + _vm._s(link.descripcion) + " ")
+              ])
+            ])
+          ])
+        ])
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -50209,9 +50234,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/maxi/Documentos/Maxi/aplicacionesweb/TP2/app/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/maxi/Documentos/Maxi/aplicacionesweb/TP2/app/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/maxi/Documentos/Maxi/aplicacionesweb/TP2/app/resources/sass/admin.scss */"./resources/sass/admin.scss");
+__webpack_require__(/*! /var/www/html/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /var/www/html/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /var/www/html/resources/sass/admin.scss */"./resources/sass/admin.scss");
 
 
 /***/ })

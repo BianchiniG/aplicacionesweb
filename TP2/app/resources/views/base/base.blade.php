@@ -12,21 +12,19 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
     <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/templatemo-style.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('css/templatemo-style.css') }}"> -->
 </head>
-<body id="reportsPage">
-    <div class="" id="home">
+<body>
+    <div id="home">
         @yield('barra_navegacion')
-
+        <br>
         <div class="container">
             @yield('contenido')
         </div>
         <!-- <footer class="tm-footer row tm-mt-small">
             <div class="col-12 font-weight-light">
                 <p class="text-center text-white mb-0 px-4 small">
-                    Copyright &copy; <b>2018</b> All rights reserved.
-
-                    Design: <a rel="nofollow noopener" href="" class="tm-footer-link">Aguila Maximiliano - Bianchini German</a>
+                    Aguila Maximiliano - Bianchini German
                 </p>
             </div>
         </footer> -->
