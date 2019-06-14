@@ -1,0 +1,16 @@
+version: '3'
+services:
+  auth_bdd:
+    image: mongo
+    container_name: auth_bdd
+    ports:
+      - 27001:27017
+    volumes:
+      - ./express_auth/bdd_files
+  app_bdd:
+    image: mongo
+    container_name: app_bdd
+    ports:
+      - 27002:27017
+    volumes:
+      - ./express_app/bdd_files
