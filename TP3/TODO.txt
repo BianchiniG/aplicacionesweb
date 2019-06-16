@@ -1,0 +1,54 @@
+- Conexion a la bdd desde cada app express:
+    * https://www.robinwieruch.de/mongodb-express-setup-tutorial/
+    * https://www.terlici.com/2015/04/03/mongodb-node-express.html
+- Creacion de endpoints para auth:
+    * POST authenticate
+        Parametros:
+            - username
+            - password
+        Response:
+            - Token
+
+    * POST update_token
+        Parametros:
+            - username
+            - password
+        Response:
+            - Token
+         
+    * POST valid_token
+        Parametros:
+            - Token
+        Response:
+            - Booleano
+
+- Creacion de endpoints para app:
+    * GET activities
+    * GET activities/{tag}
+    * GET activities/{coordinates}
+    * GET activities/{dates}
+    * GET activities/{keyword}
+    * GET activity/{id}
+    * POST activity
+        Paremetros:
+            - ...
+    * PUT activity
+        Parametros:
+            - ...
+    * DELETE activity/{id}
+        Parametros:
+            - ????
+
+    * GET tags
+    * GET tag/{id}
+    * GET tag/{name}
+    * GET tag/{keyword}
+    * POST tag
+        Parametros:
+            - ...
+    * PUT tag
+        Parametros:
+            - ...
+    * DELETE tag/{id}
+        Parametros:
+            - ????
