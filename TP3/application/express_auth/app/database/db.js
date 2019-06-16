@@ -7,7 +7,7 @@ var state = {
 exports.connect = function(url, done) {
   if (state.db) return state.db
 
-  MongoClient.connect('mongodb://localhost:27001', function(err, db) {
+  MongoClient.connect('mongodb://localhost:27001/tp3', { useNewUrlParser: true }, function(err, db) {
     if (err) 
       return false
 
