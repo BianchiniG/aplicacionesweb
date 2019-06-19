@@ -9,13 +9,11 @@ router.get('/', function (req, res) {
 
 var userController = require('../controllers/user');
 
-router.route('/users')
+router.route('/user')
     .get(userController.index)
     .post(userController.new);
-router.route('/users/:user_id')
-    .get(userController.view)
-    .patch(userController.update)
-    .put(userController.update)
-    .delete(userController.delete);
+router.route('/user/authenticate').post(userController.authenticate);
+router.route('/user/update_token').post(userController.update_token);
+router.route('/user/valid_token').post(userController.valid_token);
 
 module.exports = router;
