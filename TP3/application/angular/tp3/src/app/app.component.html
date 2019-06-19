@@ -6,5 +6,8 @@
   <app-sidebar></app-sidebar>
   <div>
     <app-content></app-content>  <!-- En el html del content van los diferentes contenidos -->
+    <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+  <agm-marker  [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
   </div>
 </div>

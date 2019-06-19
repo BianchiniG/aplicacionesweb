@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tp3';
+  lat = -43.249075;
+  lng = -65.305075;
+  zoom = 15;
 }
