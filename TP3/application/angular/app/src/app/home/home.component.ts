@@ -1,4 +1,6 @@
+import { DataService } from './data.service';
 import { Component, OnInit } from '@angular/core';
+import { Activity } from './activity.model';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  /* activities$: Activity[]; */
+  activities$: any[];
 
-  constructor() { }
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {
+    return this.dataService.getActivities().subscribe(data => this.activities$ = data);
   }
 
 }
