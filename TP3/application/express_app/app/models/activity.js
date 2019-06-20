@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
 var activitySchema = mongoose.Schema({
+    id: {
+        type: Number,
+        required: true
+    },
     title : {
         type: String,
         required: true

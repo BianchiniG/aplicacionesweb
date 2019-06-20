@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var tagSchema = mongoose.Schema({
-    _id: {
+    id: {
         type: Number,
         required: true
     },
