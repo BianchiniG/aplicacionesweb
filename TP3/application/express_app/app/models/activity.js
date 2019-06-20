@@ -27,6 +27,7 @@ var activitySchema = mongoose.Schema({
     }
 });
 
+
 class ActivityClass {
     hasTag(tag_id) {
         var has = false;
@@ -50,6 +51,27 @@ class ActivityClass {
         return true;
     }
 }
+
+// Funciones estaticas.
+activitySchema.statics.getNextId = function() {
+    Activity.find(function(err, activities) {
+        id = 0;
+        console.log(id);
+        if (err) {
+            console.log("err");
+            return false;
+
+        } else {
+            if (activities.len) {
+                console.log("hay");
+                return activities[activities.length - 1] + 1; 
+            }
+            console.log("no hay");
+            return "1";
+        }
+    });
+}
+
 activitySchema.loadClass(ActivityClass);
 
 var Activity = module.exports = mongoose.model('activity', activitySchema);
