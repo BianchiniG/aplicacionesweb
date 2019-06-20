@@ -1,0 +1,60 @@
+db.tags.insertMany([
+    {
+        'id': 1,
+        'name': 'Tag 1'
+    },
+    {
+        'id': 2,
+        'name': 'Tag 2'
+    },
+    {
+        'id': 3,
+        'name': 'Tag 3'
+    },
+    {
+        'id': 4,
+        'name': 'Tag 4'
+    },
+]);
+db.activities.insertMany([
+    {
+        'id': 1,
+        'title': 'Actividad 1',
+        'short_description': 'Descripcion Actividad 1',
+        'long_description': 'Esta es la descripcion larga de la actividad 1',
+        'tags': [1, 2, 3],
+        'coordinates': []
+    },
+    {
+        'id': 2,
+        'title': 'Actividad 2',
+        'short_description': 'Descripcion Actividad 2',
+        'long_description': 'Esta es la descripcion larga de la actividad 2',
+        'tags': [1],
+        'coordinates': []
+    },
+    {
+        'id': 3,
+        'title': 'Actividad 3',
+        'short_description': 'Descripcion Actividad 3',
+        'long_description': 'Esta es la descripcion larga de la actividad 3',
+        'tags': [2],
+        'coordinates': []
+    },
+    {
+        'id': 4,
+        'title': 'Actividad 4',
+        'short_description': 'Descripcion Actividad 4',
+        'long_description': 'Esta es la descripcion larga de la actividad 4',
+        'tags': [3],
+        'coordinates': []
+    },
+    {
+        'id': 5,
+        'title': 'Actividad 5',
+        'short_description': 'Descripcion Actividad 5',
+        'long_description': 'Esta es la descripcion larga de la actividad 5',
+        'tags': [],
+        'coordinates': []
+    }
+])

@@ -22,6 +22,8 @@ router.route('/activity/:coordinates').get(activityController.getByCoordinates);
 router.route('/activity/:dates').get(activityController.getBetweenDates);
 router.route('/activity/:keyword').get(activityController.getByKeyword);
 
+router.route('/test').get(activityController.test);
+
 router.route('/tag')
     .get(tagController.index)
     .post(tagController.new)

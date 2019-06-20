@@ -106,3 +106,17 @@ exports.getByKeyword = function (req, res) {
         data: []
     });
 };
+
+exports.test = function (req, res) {
+    Activity.get(function(err, activities) {
+        if (err) {
+            res.json({
+                code: 500
+            })
+        } else {
+            res.json({
+                data: activities[activities.length - 1]
+            })
+        }
+    });
+};
