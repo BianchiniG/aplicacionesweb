@@ -94,15 +94,20 @@ exports.update = function (req, res) {
 };
 
 exports.delete = function (req, res) {
-    Activity.remove({
-        _id: req.params.activity_id
-    }, function (err, activity) {
-        if (err)
-            res.send(err);
-        res.json({
-            status: "success",
-            message: 'Activity deleted'
-        });
+    Activity.remove({"id": req.params.id}, function (err, activity) {
+        if (err) {
+            res.send({
+                code: 500,
+                message: "There was an error deleteing the activity",
+                error: err
+            });
+        } else {
+            res.json({
+                code: 200,
+                status: "success",
+                message: 'Activity deleted'
+            });
+        }
     });
 };
 
