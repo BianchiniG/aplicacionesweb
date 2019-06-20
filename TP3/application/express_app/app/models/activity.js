@@ -9,7 +9,7 @@ var activitySchema = mongoose.Schema({
         type: String,
         required: true
     },
-    short_descripcion : {
+    short_description : {
         type: String,
         required: true
     },
