@@ -54,13 +54,30 @@ exports.new = function (req, res) {
 };
 
 exports.view = function (req, res) {
-    Activity.findById(req.params.activity_id, function (err, activity) {
-        if (err)
-            res.send(err);
-        res.json({
-            message: 'Activity details loading..',
-            data: activity
-        });
+    Activity.findOne({'id': req.params.id}, function (err, activity) {
+        if (err) {
+            res.send({
+                code: 500,
+                message: "An error ocurred getting the activity!",
+                error: err
+            });
+        }
+
+        if (activity) {
+            res.json({
+                code: 200,
+                message: 'Activity found!',
+                data: activity
+            });
+        } else {
+            res.json({
+                code: 400,
+                message: 'Activity not found!',
+                data: {
+                    id: req.params.id
+                }
+            });
+        }
     });
 };
 
