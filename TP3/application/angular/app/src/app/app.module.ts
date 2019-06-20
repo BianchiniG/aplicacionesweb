@@ -12,6 +12,8 @@ import { CardComponent } from './components/card/card.component';
 import { TagComponent } from './components/tag/tag.component';
 import { ModalComponent } from './components/modal/modal.component';
 
+import { DataService } from './home/data.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,7 @@ import { ModalComponent } from './components/modal/modal.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
