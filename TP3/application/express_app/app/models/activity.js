@@ -50,6 +50,8 @@ class ActivityClass {
         return true;
     }
 }
+activitySchema.loadClass(ActivityClass);
+
 var Activity = module.exports = mongoose.model('activity', activitySchema);
 module.exports.get = function (callback, limit) {
     Activity.find(callback).limit(limit);
