@@ -65,19 +65,31 @@ exports.view = function (req, res) {
 };
 
 exports.update = function (req, res) {
-    Activity.findById(req.params.activity_id, function (err, activity) {
+    Activity.findOne({"id": req.body.id}, function (err, activity) {
         if (err)
             res.send(err);
-        activity.name = req.body.name;
 
-        activity.save(function (err) {
-            if (err)
-                res.json(err);
+        if (activity) {
+            if (activity.updateData(req.body)) {
+                res.json({
+                    code: 200,
+                    message: 'Activity info updated!',
+                    data: activity
+                });
+            } else {
+                res.json({
+                    code: 500,
+                    message: "Error while saving the activity",
+                    error: err
+                });
+            }
+        } else {
             res.json({
-                message: 'Activity Info updated',
-                data: activity
-            });
-        });
+                code: 400,
+                message: "Activity not found!",
+                data: req
+            })
+        }
     });
 };
 
