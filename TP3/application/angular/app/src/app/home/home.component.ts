@@ -8,7 +8,6 @@ import { Activity } from './activity.model';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  /* activities$: Activity[]; */
   activities$: any[];
 
   constructor(private dataService: DataService) {}

@@ -8,13 +8,11 @@ import { retry, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class DataService {
-  /* apiUrl = 'http://localhost:9090/api/activity'; */
   apiUrl = 'http://localhost:9090/api/activity';
 
   constructor(private http: HttpClient) { }
 
   getActivities() {
-    /* return this.http.get<Activity[]>(this.apiUrl); */
     return this.http.get<any[]>(this.apiUrl);
   }
 }
