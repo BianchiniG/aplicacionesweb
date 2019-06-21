@@ -1,10 +1,6 @@
 var mongoose = require('mongoose');
 
 var activitySchema = mongoose.Schema({
-    id: {
-        type: Number,
-        required: true
-    },
     title : {
         type: String,
         required: true
@@ -27,18 +23,7 @@ var activitySchema = mongoose.Schema({
     }
 });
 
-
 class ActivityClass {
-    hasTag(tag_id) {
-        var has = false;
-        this.tags.forEach(tag => {
-            if (tag == tag_id) {
-                has = true;
-            }
-        });
-        return has;
-    }
-
     updateData(data) {
         this.title = data.title;
         this.short_description = data.short_description;
@@ -50,26 +35,6 @@ class ActivityClass {
         this.save();
         return true;
     }
-}
-
-// Funciones estaticas.
-activitySchema.statics.getNextId = function() {
-    Activity.find(function(err, activities) {
-        id = 0;
-        console.log(id);
-        if (err) {
-            console.log("err");
-            return false;
-
-        } else {
-            if (activities.len) {
-                console.log("hay");
-                return activities[activities.length - 1] + 1; 
-            }
-            console.log("no hay");
-            return "1";
-        }
-    });
 }
 
 activitySchema.loadClass(ActivityClass);

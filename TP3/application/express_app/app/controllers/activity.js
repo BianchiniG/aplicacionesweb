@@ -1,4 +1,6 @@
 Activity = require('../models/activity');
+Tag = require('../models/tag');
+
 
 exports.index = function (req, res) {
     Activity.get(function (err, activities) {
@@ -27,9 +29,8 @@ exports.new = function (req, res) {
             })
         } else {
             var activity = new Activity();
-            activity.id = activities.length ? activities[activities.length - 1].id + 1 : 1;
             activity.title = req.body.title;
-            activity.short_descripcion = req.body.short_description;
+            activity.short_description = req.body.short_description;
             activity.long_description = req.body.long_description;
             activity.tags = req.body.tags ? req.body.tags : [];  // TODO: Validar la existencia de la tag
             activity.coordinates = req.body.coordinates ? req.body.coordinates : [];
@@ -54,7 +55,7 @@ exports.new = function (req, res) {
 };
 
 exports.view = function (req, res) {
-    Activity.findOne({'id': req.params.id}, function (err, activity) {
+    Activity.findOne({'_id': req.params.id}, function (err, activity) {
         if (err) {
             res.send({
                 code: 500,
@@ -82,7 +83,7 @@ exports.view = function (req, res) {
 };
 
 exports.update = function (req, res) {
-    Activity.findOne({"id": req.body.id}, function (err, activity) {
+    Activity.findOne({"_id": req.body.id}, function (err, activity) {
         if (err)
             res.send(err);
 
@@ -111,7 +112,7 @@ exports.update = function (req, res) {
 };
 
 exports.delete = function (req, res) {
-    Activity.remove({"id": req.params.id}, function (err, activity) {
+    Activity.remove({"_id": req.params.id}, function (err, activity) {
         if (err) {
             res.send({
                 code: 500,
@@ -129,47 +130,113 @@ exports.delete = function (req, res) {
 };
 
 exports.getByTag = function (req, res) {
-    res.json({
-        status: "success",
-        message: "Not implemented yet!",
-        data: []
-    });
+    Activity.find({"tags": req.params.tag}, function(err, activities) {
+        if (err) {
+            res.json({
+                code: 500,
+                message: "There was an error getting the activities",
+                error: err
+            })
+        }
+
+        if (activities.length) {
+            res.json({
+                code: 200,
+                message: "Activities found!",
+                data: activities
+            });
+        } else {
+            res.json({
+                code: 400,
+                message: "There was no activities with that tag",
+                data: {
+                    tag: req.params.tag
+                }
+            })
+        }
+    })
 };
 
 exports.getByCoordinates = function (req, res) {
-    res.json({
-        status: "success",
-        message: "Not implemented yet!",
-        data: []
-    });
+    var coordinates = JSON.parse(req.params.coordinates);
+    Activity.find({'coordinates': coordinates}, function(err, activities) {
+        if (err) {
+            res.json({
+                code: 500,
+                message: "There was an error while searching the activities",
+                data: err
+            });
+        }
+
+        if (activities.length) {
+            res.json({
+                code: 200,
+                message: "Search was successful!",
+                data: activities
+            });
+        } else {
+            res.json({
+                code: 400,
+                message: "There was no activities found on that coordinates!",
+                data: req.params.coordinates
+            });
+        }
+    })
 };
 
 exports.getBetweenDates = function (req, res) {
-    res.json({
-        status: "success",
-        message: "Not implemented yet!",
-        data: []
-    });
-};
+    var parameter = JSON.parse(req.params.dates);
+    if (Array.isArray(parameter)) {
+        if (parameter.length == 2) {
+            Activity.find({date: {$elemMatch: {$gte: parameter[0], $lt: parameter[1]}}}, function (err, activities) {
+                if (err) {
+                    res.json({
+                        code: 500,
+                        message: "Error while getting the activities!",
+                        data: err
+                    });    
+                }
 
-exports.getByKeyword = function (req, res) {
-    res.json({
-        status: "success",
-        message: "Not implemented yet!",
-        data: []
-    });
-};
-
-exports.test = function (req, res) {
-    Activity.get(function(err, activities) {
-        if (err) {
-            res.json({
-                code: 500
+                if (activities.length){
+                    res.json({
+                        code: 200,
+                        message: "Activities found!",
+                        data: activities
+                    });
+                } else {
+                    res.json({
+                        code: 400,
+                        message: "No activities were found between those dates",
+                        data: parameter
+                    })
+                }
             })
         } else {
             res.json({
-                data: activities[activities.length - 1]
+                code: 500,
+                message: "The qty of parameters is wrong!",
+                data: parameter
+            });
+        }
+    }
+};
+
+exports.getByKeyword = function (req, res) {
+    var keyword = req.params.keyword;
+
+    Activity.find({'title': { $regex: /^keyword/ }}, function (err, activities) {
+        if (err) {
+            res.json({
+                code: 500,
+                message: "There was an error retrieving the activities",
+                data: err
             })
         }
+
+        res.json({
+            code: 200,
+            message: "Activities found!",
+            data: activities
+        })
     });
 };

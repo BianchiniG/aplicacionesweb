@@ -1,60 +1,42 @@
-db.tags.insertMany([
-    {
-        'id': 1,
-        'name': 'Tag 1'
-    },
-    {
-        'id': 2,
-        'name': 'Tag 2'
-    },
-    {
-        'id': 3,
-        'name': 'Tag 3'
-    },
-    {
-        'id': 4,
-        'name': 'Tag 4'
-    },
-]);
 db.activities.insertMany([
     {
-        'id': 1,
         'title': 'Actividad 1',
         'short_description': 'Descripcion Actividad 1',
         'long_description': 'Esta es la descripcion larga de la actividad 1',
-        'tags': [1, 2, 3],
-        'coordinates': []
+        'date': '2019-06-21T14:33:01',
+        'tags': ["Tag 1", "Tag 2", "Tag 3"],
+        'coordinates': [123, 456]
     },
     {
-        'id': 2,
         'title': 'Actividad 2',
         'short_description': 'Descripcion Actividad 2',
         'long_description': 'Esta es la descripcion larga de la actividad 2',
-        'tags': [1],
+        'date': '2019-06-15T14:33:01',
+        'tags': ["Tag 1"],
         'coordinates': []
     },
     {
-        'id': 3,
         'title': 'Actividad 3',
         'short_description': 'Descripcion Actividad 3',
         'long_description': 'Esta es la descripcion larga de la actividad 3',
-        'tags': [2],
+        'date': '2019-06-01T14:33:01',
+        'tags': ["Tag 2"],
         'coordinates': []
     },
     {
-        'id': 4,
         'title': 'Actividad 4',
         'short_description': 'Descripcion Actividad 4',
         'long_description': 'Esta es la descripcion larga de la actividad 4',
-        'tags': [3],
+        'date': '2019-06-30T14:33:01',
+        'tags': ["Tag 3"],
         'coordinates': []
     },
     {
-        'id': 5,
         'title': 'Actividad 5',
         'short_description': 'Descripcion Actividad 5',
         'long_description': 'Esta es la descripcion larga de la actividad 5',
+        'date': '2017-06-21T14:33:01',
         'tags': [],
         'coordinates': []
     }
-])
+]);

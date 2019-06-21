@@ -17,12 +17,10 @@ router.route('/activity')
 router.route('/activity/:id')
     .get(activityController.view)
     .delete(activityController.delete);
-router.route('/activity/:tag').get(activityController.getByTag);
-router.route('/activity/:coordinates').get(activityController.getByCoordinates);
-router.route('/activity/:dates').get(activityController.getBetweenDates);
-router.route('/activity/:keyword').get(activityController.getByKeyword);
-
-router.route('/test').get(activityController.test);
+router.route('/activity/tag/:tag').get(activityController.getByTag);
+router.route('/activity/coordinates/:coordinates').get(activityController.getByCoordinates);
+router.route('/activity/dates/:dates').get(activityController.getBetweenDates);
+router.route('/activity/keyword/:keyword').get(activityController.getByKeyword);
 
 router.route('/tag')
     .get(tagController.index)
