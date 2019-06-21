@@ -1,5 +1,9 @@
-<div id="content-wrapper">
-  <div *ngFor='let activity of activities$.data'>
-    <h2> {{ activity.title }} </h2>
+<div id="content-wrapper" class="row">
+  <div *ngFor='let activity of activities$.data' >
+    <app-card [title]="activity.title"
+              [shortdesc]="activity.short_description"
+              [tags]="activity.tags"
+              [activity]="activity"
+              [id]="activity._id"></app-card>
   </div>
 </div>
