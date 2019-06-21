@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CardComponent } from './components/card/card.component';
 import { TagComponent } from './components/tag/tag.component';
 import { ModalComponent } from './components/modal/modal.component';
+
+import { DataService } from './home/data.service';
 
 @NgModule({
   declarations: [
@@ -24,9 +27,10 @@ import { ModalComponent } from './components/modal/modal.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

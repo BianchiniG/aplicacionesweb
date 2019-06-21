@@ -1,7 +1,9 @@
-<div id="content-wrapper">
-  <div class="container-fluid">
-    <p>
-      home.component.html => Obtener las activities y crear por cada una, una card
-    </p>
+<div id="content-wrapper" class="row">
+  <div *ngFor='let activity of activities$.data' >
+    <app-card [title]="activity.title"
+              [shortdesc]="activity.short_description"
+              [tags]="activity.tags"
+              [activity]="activity"
+              [id]="activity._id"></app-card>
   </div>
 </div>
