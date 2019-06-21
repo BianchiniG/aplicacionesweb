@@ -13,6 +13,9 @@ import { TagComponent } from './components/tag/tag.component';
 import { ModalComponent } from './components/modal/modal.component';
 
 import { DataService } from './home/data.service';
+import { ActivityComponent } from './components/activity/activity.component';
+
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -23,12 +26,16 @@ import { DataService } from './home/data.service';
     SidebarComponent,
     CardComponent,
     TagComponent,
-    ModalComponent
+    ModalComponent,
+    ActivityComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyADsGc7bwVlkfykI9_dGCJ2CpoaU7BqwR0'
+    })
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
